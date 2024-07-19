@@ -246,4 +246,7 @@ docker exec -it tch099-web-1
 ls
 ```
 
+https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Cwindows&tryIt=true&source=docs#code-try-11
+
 ![alt text](github-page.png)
+![alt text](image.png)

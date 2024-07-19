@@ -75,6 +75,7 @@ function route($route, $path_to_include) {
     $request_url_parts = explode('/', $request_url);
     array_shift($route_parts);
     array_shift($request_url_parts);
+
     if ($route_parts[0] == '' && count($request_url_parts) == 0) {
         if (is_callable($callback)) {
             call_user_func_array($callback, []);
@@ -83,9 +84,23 @@ function route($route, $path_to_include) {
         include_once __DIR__ . "/$path_to_include";
         exit();
     }
+
+    // Handle wildcard routes like /css/*
+    if ($route_parts[count($route_parts) - 1] == '*' && count($request_url_parts) >= count($route_parts) - 1) {
+        $wildcard_route_parts = array_slice($request_url_parts, count($route_parts) - 1);
+        $wildcard_path = implode('/', $wildcard_route_parts);
+        if (is_callable($callback)) {
+            call_user_func_array($callback, [$wildcard_path]);
+            exit();
+        }
+        include_once __DIR__ . "/$path_to_include";
+        exit();
+    }
+
     if (count($route_parts) != count($request_url_parts)) {
         return;
     }
+
     $parameters = [];
     for ($__i__ = 0; $__i__ < count($route_parts); $__i__++) {
         $route_part = $route_parts[$__i__];

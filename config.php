@@ -39,7 +39,7 @@ if ($isCloudEnv) {
 $charset = 'utf8mb4';
 
 if (!$host) {
-    throw new InvalidPathException('DB_HOST is not set');
+    throw new InvalidPathException('DB_HOST is not set' . $isCloudEnv);
 }
 if (!$db) {
     throw new InvalidPathException('MYSQL_DATABASE is not set');

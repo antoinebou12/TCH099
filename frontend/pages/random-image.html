@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Image Selector</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-4">
+        <h2>Random Image Selector</h2>
+        <form id="imageForm" class="form-group">
+            <div class="form-group">
+                <label for="imageType">Select Image Type:</label>
+                <select id="imageType" name="imageType" class="form-control" required>
+                    <option value="cat">Cat</option>
+                    <option value="human">Human</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="imageContainer" class="mt-4"></div>
+    </div>
+
+    <script>
+        document.getElementById('imageForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const imageType = document.getElementById('imageType').value;
+
+            const data = new FormData();
+            data.append('imageType', imageType);
+
+            fetch(`/api/randomimage.php`, {
+                method: 'POST',
+                body: data
+            })
+            .then(response => response.json())
+            .then(responseJSON => {
+                const img = document.createElement('img');
+                img.src = responseJSON.url;
+                img.alt = imageType;
+                img.className = 'img-fluid';
+
+                const imageContainer = document.getElementById('imageContainer');
+                imageContainer.innerHTML = ''; // Clear previous image
+                imageContainer.appendChild(img);
+            })
+            .catch(error => {
+                alert(error.message);
+            });
+        });
+    </script>
+</body>
+</html>

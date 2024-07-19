@@ -16,18 +16,39 @@ try {
     $dotenv = Dotenv::createImmutable(__DIR__);
     $dotenv->load();
 } catch (InvalidPathException $e) {
-    // Handle the case where .env file is not found
-    error_log('No .env file found. Continuing without loading environment variables from .env file.');
+    // No environment file found
 }
 
-$host = getenv('DB_HOST') ?: getenv('AZURE_MYSQL_HOST');
-$db   = getenv('MYSQL_DATABASE') ?: getenv('AZURE_MYSQL_DBNAME');
-$user = getenv('MYSQL_USER') ?: getenv('AZURE_MYSQL_USERNAME');
-$pass = getenv('MYSQL_PASSWORD') ?: getenv('AZURE_MYSQL_PASSWORD');
+// Determine the environment (local or cloud)
+$isCloudEnv = getenv('CLOUD_ENV') ?: false;
+
+// Local environment settings
+$host = $_ENV['DB_HOST'] ?? null;
+$db   = $_ENV['MYSQL_DATABASE'] ?? null;
+$user = $_ENV['MYSQL_USER'] ?? null;
+$pass = $_ENV['MYSQL_PASSWORD'] ?? null;
+
+
+if ($isCloudEnv) {
+    // Cloud environment settings
+    $host = $_ENV['AZURE_MYSQL_DBHOST'];
+    $db   = $_ENV['AZURE_MYSQL_DBNAME'];
+    $user = $_ENV['AZURE_MYSQL_USERNAME'];
+    $pass = $_ENV['AZURE_MYSQL_PASSWORD'];
+}
 $charset = 'utf8mb4';
 
-if (!$host || !$db || !$user || !$pass) {
-    throw new \Exception('Database connection information is not complete.');
+if (!$host) {
+    throw new InvalidPathException('DB_HOST is not set');
+}
+if (!$db) {
+    throw new InvalidPathException('MYSQL_DATABASE is not set');
+}
+if (!$user) {
+    throw new InvalidPathException('MYSQL_USER is not set');
+}
+if (!$pass) {
+    throw new InvalidPathException('MYSQL_PASSWORD is not set');
 }
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

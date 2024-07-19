@@ -19,11 +19,6 @@ try {
     die('Could not find the .env file. Please make sure it exists in the root directory.');
 }
 
-// Debug: Print out all environment variables
-echo '<pre>';
-print_r($_ENV);
-echo '</pre>';
-
 // Determine the environment (local or cloud)
 $isCloudEnv = filter_var($_ENV['CLOUD_ENV'] ?? getenv('CLOUD_ENV'), FILTER_VALIDATE_BOOLEAN);
 
@@ -32,6 +27,7 @@ $host = $_ENV['DB_HOST'] ?? null;
 $db   = $_ENV['MYSQL_DATABASE'] ?? null;
 $user = $_ENV['MYSQL_USER'] ?? null;
 $pass = $_ENV['MYSQL_PASSWORD'] ?? null;
+$port = $_ENV['DB_PORT'] ?? '3306';
 
 if ($isCloudEnv) {
     // Cloud environment settings
@@ -43,11 +39,6 @@ if ($isCloudEnv) {
 }
 $charset = 'utf8mb4';
 
-// Debug: Print out the database connection settings
-echo "Host: $host\n";
-echo "Database: $db\n";
-echo "User: $user\n";
-echo "Password: $pass\n";
 
 if (!$host) {
     throw new InvalidPathException('DB_HOST is not set. Current environment: ' . ($isCloudEnv ? 'Cloud' : 'Local'));

@@ -39,4 +39,36 @@ any('/404', 'frontend/pages/404.html');
 // 403 Route
 any('/403', 'frontend/pages/403.html');
 
+
+// Static File Routes
+get('/css/*', function($path) {
+    $filePath = __DIR__ . '/frontend/css/' . $path;
+    if (file_exists($filePath)) {
+        header('Content-Type: text/css');
+        readfile($filePath);
+    } else {
+        include_once __DIR__ . '/frontend/pages/404.html';
+    }
+});
+
+get('/js/*', function($path) {
+    $filePath = __DIR__ . '/frontend/js/' . $path;
+    if (file_exists($filePath)) {
+        header('Content-Type: application/javascript');
+        readfile($filePath);
+    } else {
+        include_once __DIR__ . '/frontend/pages/404.html';
+    }
+});
+
+get('/images/*', function($path) {
+    $filePath = __DIR__ . '/frontend/js/' . $path;
+    if (file_exists($filePath)) {
+        header('Content-Type: application/javascript');
+        readfile($filePath);
+    } else {
+        include_once __DIR__ . '/frontend/pages/404.html';
+    }
+});
+
 ?>

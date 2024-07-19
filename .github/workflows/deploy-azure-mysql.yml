@@ -1,0 +1,54 @@
+name: Deploy Azure Docker Compose
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.0
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: terraform-azure-mysql
+
+      - name: Terraform Apply
+        id: apply
+        run: terraform apply -auto-approve
+        working-directory: terraform-azure-mysql
+        env:
+          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+
+      - name: Login to Azure Container Registry
+        run: |
+          az login --service-principal -u ${{ secrets.ARM_CLIENT_ID }} -p ${{ secrets.ARM_CLIENT_SECRET }} --tenant ${{ secrets.ARM_TENANT_ID }}
+          az acr login --name exampleregistry
+        env:
+          AZURE_USERNAME: ${{ secrets.ARM_CLIENT_ID }}
+          AZURE_PASSWORD: ${{ secrets.ARM_CLIENT_SECRET }}
+
+      - name: Build and Push Docker image
+        run: |
+          docker-compose -f docker-compose.yml build
+          docker tag yourdockerimage:latest exampleregistry.azurecr.io/yourdockerimage:latest
+          docker push exampleregistry.azurecr.io/yourdockerimage:latest
+
+      - name: Update Container Group with new image
+        run: terraform apply -auto-approve
+        working-directory: terraform-azure-mysql
+        env:
+          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}

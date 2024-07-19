@@ -1,0 +1,27 @@
+{
+    "name": "vendor/package",
+    "description": "A short description of the package",
+    "type": "project",
+    "require": {
+        "php": "^8.1",
+        "ext-pdo_mysql": "*",
+        "vlucas/phpdotenv": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [],
+        "post-update-cmd": [],
+        "post-create-project-cmd": []
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+        .admin {
+            color: red;
+        }
+        .client {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-3">
+        <h1>Welcome</h1>
+    </header>
+
+    <div class="container my-4">
+        <section id="userInformation" class="mb-4">
+            <h2>Welcome, <span id="username"></span></h2>
+            <h3 class="mt-4">Your Information</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Email: <span id="email"></span></li>
+                <li class="list-group-item">Role: <span id="role"></span></li>
+            </ul>
+        </section>
+
+        <section id="adminSection" class="mb-4 hidden">
+            <h3 class="mt-4">All Clients</h3>
+            <ul class="list-group" id="clientList"></ul>
+        </section>
+    </div>
+
+    <footer class="bg-primary text-white text-center py-3 fixed-bottom">
+        <p>&copy; 2024</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function createLoginButton(){
+                const loginButton = document.createElement('a');
+                loginButton.href = '/login';
+                loginButton.textContent = 'Login';
+                loginButton.classList.add('btn', 'btn-primary');
+                loginButton.id = 'loginButton';
+                var h2 = document.getElementsByTagName('h2')[0];
+                h2.appendChild(loginButton);
+            }
+
+            function createLogoutButton(){
+                const logoutButton = document.createElement('button');
+                logoutButton.textContent = 'Logout';
+                logoutButton.classList.add('btn', 'btn-danger');
+                logoutButton.id = 'logoutButton';
+                var h2 = document.getElementsByTagName('h2')[0];
+                h2.appendChild(logoutButton);
+                logoutButton.addEventListener('click', () => {
+                    fetch('/api/logout', { method: 'POST' })
+                        .then(response => response.json())
+                        .then(result => {
+                            if (result.status === 'success') {
+                                window.location.href = '/login';
+                            }
+                        });
+                });
+            }
+
+            function fetchClients() {
+                fetch('/api/clients')
+                    .then(response => response.json())
+                    .then(clients => {
+                        if (clients.status === 'success') {
+                            const clientList = document.getElementById('clientList');
+                            clients.data.forEach(client => {
+                                const li = document.createElement('li');
+                                li.textContent = `Username: ${client.username}, Email: ${client.email}, Role: ${client.role}`;
+                                li.classList.add('list-group-item', client.role);
+                                clientList.appendChild(li);
+                            });
+                        }
+                    });
+            }
+
+            // Fetch user details from session
+            fetch('/api/user_details')
+                .then(response => response.json())
+                .then(user => {
+                    if (user.status === 'success') {
+                        document.getElementById('username').textContent = user.data.username;
+                        document.getElementById('email').textContent = user.data.email;
+                        document.getElementById('role').textContent = user.data.role;
+                        createLogoutButton();
+                        if (user.data.role === 'admin') {
+                            document.getElementById('adminSection').classList.remove('hidden');
+                            fetchClients();
+                        }
+                    } else if (user.redirect) {
+                        window.location.href = user.redirect;
+                        createLoginButton();
+                    } else {
+                        createLoginButton();
+                    }
+                });
+        });
+    </script>
+</body>
+</html>

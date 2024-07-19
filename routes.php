@@ -28,6 +28,7 @@ post('/api/login', 'api/login.php'); // POST
 post('/api/signup', 'api/signup.php'); // POST
 post('/api/logout', 'api/logout.php'); // POST
 get('/api/user_details', 'api/user_details.php'); // POST
+get('/api/clients', 'api/clients.php'); // GET
 
 post('/api/hello-world/$langue', 'api/hello-world.php'); // POST
 post('/api/hello-world/$langue', 'api/hello-world.php'); // GET

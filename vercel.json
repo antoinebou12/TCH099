@@ -1,6 +1,6 @@
 {
     "functions": {
-        "api/*.php": {
+        "*.php": {
             "runtime": "vercel-php@0.7.1"
         }
     },
@@ -9,5 +9,8 @@
             "src": "/(.*)",
             "dest": "/$1"
         }
+    ],
+    "builds": [
+        { "src": "Dockerfile", "use": "@vercel/docker" }
     ]
 }

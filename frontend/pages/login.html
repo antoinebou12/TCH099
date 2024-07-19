@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-3">
+        <h1>Authentification</h1>
+    </header>
+
+    <div class="container my-4">
+        <section id="authentification" class="mb-4">
+            <h2>Authentification</h2>
+            <div id="message" class="alert" style="display: none;"></div>
+            <form id="loginForm" class="form-group">
+                <label for="username">Nom d'utilisateur:</label>
+                <input type="text" id="username" name="username" class="form-control" required />
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" name="password" class="form-control" required />
+                <button type="submit" class="btn btn-primary mt-2">Se connecter</button>
+            </form>
+        </section>
+    </div>
+
+    <footer class="bg-primary text-white text-center py-3 fixed-bottom">
+        <p>&copy; 2024</p>
+    </footer>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                const messageDiv = document.getElementById('message');
+                if (result.status === 'success') {
+                    messageDiv.classList.remove('alert-danger');
+                    messageDiv.classList.add('alert-success');
+                    setTimeout(() => {
+                        window.location.href = result.redirect;
+                    }, 2000);
+                } else {
+                    messageDiv.classList.remove('alert-success');
+                    messageDiv.classList.add('alert-danger');
+                }
+                messageDiv.textContent = result.message;
+                messageDiv.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

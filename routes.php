@@ -41,33 +41,15 @@ any('/403', 'frontend/pages/403.html');
 
 // Static File Routes
 get('/css/*', function($path) {
-    $filePath = __DIR__ . '/frontend/css/' . $path;
-    if (file_exists($filePath)) {
-        header('Content-Type: text/css');
-        readfile($filePath);
-    } else {
-        include_once __DIR__ . '/frontend/pages/404.html';
-    }
+    serve_static_file('/frontend/css', 'text/css', $path);
 });
 
 get('/js/*', function($path) {
-    $filePath = __DIR__ . '/frontend/js/' . $path;
-    if (file_exists($filePath)) {
-        header('Content-Type: application/javascript');
-        readfile($filePath);
-    } else {
-        include_once __DIR__ . '/frontend/pages/404.html';
-    }
+    serve_static_file('/frontend/js', 'application/javascript', $path);
 });
 
 get('/images/*', function($path) {
-    $filePath = __DIR__ . '/frontend/images/' . $path; // Corrected path to 'images'
-    if (file_exists($filePath)) {
-        $mimeType = mime_content_type($filePath);
-        header('Content-Type: ' . $mimeType);
-        readfile($filePath);
-    } else {
-        include_once __DIR__ . '/frontend/pages/404.html';
-    }
+    $mimeType = mime_content_type(__DIR__ . '/frontend/images/' . $path);
+    serve_static_file('/frontend/images', $mimeType, $path);
 });
 ?>

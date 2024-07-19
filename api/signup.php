@@ -1,5 +1,5 @@
 <?php
-include __DIR__.'/../utils/utils.php';
+require_once(__DIR__ . "/../utils/utils.php");
 
 header("Content-Type: application/json");
 
@@ -12,17 +12,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $data['email'] ?? '';
     $role = $data['role'] ?? 'client';
 
-    // Check if the username already exists
-    $stmt = $pdo->prepare('SELECT * FROM users WHERE username = ?');
+    // Ensure role is valid
+    $validRoles = ['admin', 'client'];
+    if (!in_array($role, $validRoles)) {
+        $response['status'] = 'error';
+        $response['message'] = 'Invalid role provided';
+        echo json_encode($response);
+        exit;
+    }
+
+    global $pdo; // Ensure the global $pdo is accessible here
+    $stmt = $pdo->prepare('SELECT * FROM Clients WHERE username = ?');
     $stmt->execute([$username]);
     if ($stmt->fetch()) {
         $response['status'] = 'error';
         $response['message'] = 'Username already taken';
     } else {
-        // Register the new user
-        if (registerUser($username, $password, $email, '', $role)) {
+        if (registerUser($username, $password, $email, $role)) {
             $response['status'] = 'success';
             $response['message'] = 'Signup successful';
+            $response['redirect'] = '/login';
         } else {
             $response['status'] = 'error';
             $response['message'] = 'Error creating account';

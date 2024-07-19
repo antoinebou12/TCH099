@@ -11,12 +11,12 @@
         <h2>Language Selector</h2>
         <form id="languageForm" class="form-group">
             <div class="form-group">
-                <label for="nom">Nom:</label>
-                <input type="text" id="nom" name="nom" class="form-control" required>
-            </div>
-            <div class="form-group">
                 <label for="prenom">Prénom:</label>
                 <input type="text" id="prenom" name="prenom" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nom" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="language">Language:</label>
@@ -35,12 +35,12 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Check if user is logged in
-            fetch('/api/user_details.php')
+            fetch('/api/user_details')
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === 'success') {
-                        document.getElementById('nom').value = data.data.username;
-                        document.getElementById('nom').disabled = true; // Disable editing of 'nom' field
+                        document.getElementById('prenom').value = data.data.username;
+                        document.getElementById('prenom').disabled = true; // Disable editing of 'nom' field
                     }
                 });
 

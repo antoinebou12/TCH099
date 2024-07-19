@@ -36,7 +36,7 @@
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
 
-            fetch('/api/login.php', {
+            fetch('/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -48,7 +48,7 @@
                     messageDiv.classList.remove('alert-danger');
                     messageDiv.classList.add('alert-success');
                     setTimeout(() => {
-                        window.location.href = 'index.html';
+                        window.location.href = result.redirect;
                     }, 2000);
                 } else {
                     messageDiv.classList.remove('alert-success');

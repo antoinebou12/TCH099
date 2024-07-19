@@ -1,6 +1,6 @@
 {
     "functions": {
-        "*.php": {
+        "api/*.php": {
             "runtime": "vercel-php@0.7.1"
         }
     },
@@ -11,6 +11,19 @@
         }
     ],
     "builds": [
-        { "src": "Dockerfile", "use": "@vercel/docker" }
-    ]
+        {
+            "src": "api/*.php",
+            "use": "@vercel/php"
+        },
+        {
+            "src": "frontend/pages/*",
+            "use": "@vercel/static"
+        }
+    ],
+    "build": {
+        "env": {
+            "COMPOSER_VENDOR_DIR": "vendor"
+        },
+        "command": "composer install"
+    }
 }

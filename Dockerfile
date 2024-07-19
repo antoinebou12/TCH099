@@ -29,22 +29,26 @@ RUN a2enmod headers
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Create a non-root user
-RUN useradd -ms /bin/bash composeruser
-
 # Set working directory
 WORKDIR /var/www/html/
 
 # Copy application source
 COPY . .
 
-# Change ownership of the working directory
-RUN chown -R composeruser:composeruser /var/www/html
+# Set proper permissions
+RUN chown -R www-data:www-data /var/www/html
 
-# Switch to the non-root user
-USER composeruser
+# Switch to www-data user before running composer
+USER www-data
 
-# Install PHP dependencies
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+# Install PHP dependencies using Composer
+RUN composer install
 
+# Switch back to root user to perform final configurations
+USER root
+
+# Expose port 80
 EXPOSE 80
+
+# Set the user to www-data for running the container
+USER www-data

@@ -1,9 +1,24 @@
 <?php
 
+// Error handling
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Access Control Headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 
+// Check for vendor autoload
+if (!file_exists(__DIR__.'/vendor/autoload.php')) {
+    throw new Exception('vendor/autoload.php not found. Did you run composer install?');
+}
+
+require_once __DIR__.'/vendor/autoload.php';
+require_once __DIR__.'/utils/utils.php';
+
+// Define routing functions
 function get($route, $path_to_include) {
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         route($route, $path_to_include);
@@ -49,6 +64,10 @@ function route($route, $path_to_include) {
         include_once __DIR__ . "/frontend/pages/404.html";
         exit();
     }
+    if ($route == "/403") {
+        include_once __DIR__ . "/frontend/pages/403.html";
+        exit();
+    }
     $request_url = filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL);
     $request_url = rtrim($request_url, '/');
     $request_url = strtok($request_url, '?');
@@ -57,7 +76,6 @@ function route($route, $path_to_include) {
     array_shift($route_parts);
     array_shift($request_url_parts);
     if ($route_parts[0] == '' && count($request_url_parts) == 0) {
-        // Callback function
         if (is_callable($callback)) {
             call_user_func_array($callback, []);
             exit();
@@ -79,7 +97,6 @@ function route($route, $path_to_include) {
             return;
         }
     }
-    // Callback function
     if (is_callable($callback)) {
         call_user_func_array($callback, $parameters);
         exit();
@@ -93,7 +110,9 @@ function out($text) {
 }
 
 function set_csrf() {
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     if (!isset($_SESSION["csrf"])) {
         $_SESSION["csrf"] = bin2hex(random_bytes(50));
     }
@@ -101,7 +120,9 @@ function set_csrf() {
 }
 
 function is_csrf_valid() {
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     if (!isset($_SESSION['csrf']) || !isset($_POST['csrf'])) {
         return false;
     }
@@ -110,4 +131,50 @@ function is_csrf_valid() {
     }
     return true;
 }
+
+// Custom error handler to nicely format errors
+set_error_handler(function($errno, $errstr, $errfile, $errline) {
+    if (!(error_reporting() & $errno)) {
+        return;
+    }
+    switch ($errno) {
+        case E_USER_ERROR:
+            echo "<b>ERROR</b> [$errno] $errstr<br />\n";
+            echo "  Fatal error on line $errline in file $errfile";
+            echo ", PHP " . PHP_VERSION . " (" . PHP_OS . ")<br />\n";
+            echo "Aborting...<br />\n";
+            exit(1);
+            break;
+
+        case E_USER_WARNING:
+            echo "<b>WARNING</b> [$errno] $errstr<br />\n";
+            break;
+
+        case E_USER_NOTICE:
+            echo "<b>NOTICE</b> [$errno] $errstr<br />\n";
+            break;
+
+        default:
+            echo "Unknown error type: [$errno] $errstr<br />\n";
+            break;
+    }
+
+    /* Don't execute PHP internal error handler */
+    return true;
+});
+
+// Custom exception handler to nicely format exceptions
+set_exception_handler(function($exception) {
+    echo "<b>Exception:</b> " . $exception->getMessage() . "<br />";
+    echo "In file: " . $exception->getFile() . " on line " . $exception->getLine() . "<br />";
+});
+
+// Function to handle shutdown and catch fatal errors
+register_shutdown_function(function() {
+    $error = error_get_last();
+    if ($error && ($error['type'] === E_ERROR || $error['type'] === E_PARSE)) {
+        echo "<b>Fatal Error:</b> " . $error['message'] . "<br />";
+        echo "In file: " . $error['file'] . " on line " . $error['line'] . "<br />";
+    }
+});
 ?>

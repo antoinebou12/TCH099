@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once(__DIR__ . "/../utils/utils.php");
 
 header("Content-Type: application/json");
 
@@ -12,7 +12,8 @@ if (isset($_SESSION['user_loggedin'])) {
 } else {
     echo json_encode([
         'status' => 'error',
-        'message' => 'User not logged in'
+        'message' => 'User not logged in',
+        'redirect' => 'login'
     ]);
 }
 ?>

@@ -73,7 +73,6 @@
 - [X] **View User Details:** As a user, I want to view my profile details such as username and email address.
 - [] **Admin Login:** As an admin, I want to log in to my account to access admin features.
 
-
 ## Use Case
 
 ![Use Case](https://www.plantuml.com/plantuml/dpng/PO_H2eCm34NV-nN1z_t243OGOJ3Ow5v7q50AjagRij-VkeKeFkQSNdfldHaJbp0Ox7XCO3CbOqgc3ZD1zVGkWfqgm0psybvEEwc-ZGxQA7Q-shYNzy8REr-gNvu-wtTm9KO_P7cuY8N_iIOQYfIG2Pf4n3uwIOWGleqmF33sOu0se2DDy0-lr9Yrn-ci6vN8BWKoHScXiwfZkQtRrwWfzYKCNm00)
@@ -233,6 +232,10 @@ MYSQL_PASSWORD=your_database_password
 
 To deploy your application on Vercel:
 
+![import](readme/import.png)
+![configure](readme/config.png)
+![env](readme/env.png)
+
 ** Install Node.js and npm:**
 
 1. **Install Vercel CLI:**
@@ -266,3 +269,10 @@ To run the application locally using Docker:
 docker-compose up -d --build
 ```
 
+### Debugging
+
+```
+docker-compose ps
+docker exec -it tch099-web-1
+ls
+```

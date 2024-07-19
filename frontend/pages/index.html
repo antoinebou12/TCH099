@@ -13,33 +13,31 @@
     <h2>Your Information</h2>
     <ul>
         <li>Email: <span id="email"></span></li>
-        <li>Phone: <span id="phone"></span></li>
         <li>Role: <span id="role"></span></li>
     </ul>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Fetch user details from session
-            fetch('/api/user_details.php')
+            fetch('/api/user_details')
                 .then(response => response.json())
                 .then(user => {
                     if (user.status === 'success') {
                         document.getElementById('username').textContent = user.data.username;
                         document.getElementById('email').textContent = user.data.email;
-                        document.getElementById('phone').textContent = user.data.phone;
                         document.getElementById('role').textContent = user.data.role;
-                    } else {
-                        window.location.href = 'login.html';
+                    } else if (user.redirect) {
+                        window.location.href = user.redirect;
                     }
                 });
 
             // Logout functionality
             document.getElementById('logoutButton').addEventListener('click', () => {
-                fetch('/api/logout.php', { method: 'POST' })
+                fetch('/api/logout', { method: 'POST' })
                     .then(response => response.json())
                     .then(result => {
                         if (result.status === 'success') {
-                            window.location.href = 'login.html';
+                            window.location.href = '/login';
                         }
                     });
             });

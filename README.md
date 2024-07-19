@@ -247,6 +247,10 @@ ls
 ```
 
 https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Cwindows&tryIt=true&source=docs#code-try-11
+https://learn.microsoft.com/en-ca/entra/identity-platform/howto-create-service-principal-portal
+https://portal.azure.com/#create/Microsoft.AppServiceWebAppDatabaseV3
 
 ![alt text](github-page.png)
 ![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)

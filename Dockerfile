@@ -40,7 +40,7 @@ COPY . .
 RUN chown -R www-data:www-data /var/www/html
 
 # Switch to www-data user before running composer
-USER www-dataa
+USER www-data
 
 # Install PHP dependencies using Composer
 RUN composer install

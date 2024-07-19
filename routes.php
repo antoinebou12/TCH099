@@ -52,4 +52,5 @@ get('/images/*', function($path) {
     $mimeType = mime_content_type(__DIR__ . '/frontend/images/' . $path);
     serve_static_file('/frontend/images', $mimeType, $path);
 });
+
 ?>

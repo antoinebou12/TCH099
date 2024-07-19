@@ -55,69 +55,27 @@ function any($route, $path_to_include) {
 
 function route($route, $path_to_include) {
     $callback = $path_to_include;
-
-    // Normalize route and request URL
+    if (!is_callable($callback)) {
+        if (!strpos($path_to_include, '.php') && !strpos($path_to_include, '.html')) {
+            $path_to_include .= '.php';
+        }
+    }
+    if ($route == "/404") {
+        include_once __DIR__ . "/frontend/pages/404.html";
+        exit();
+    }
+    if ($route == "/403") {
+        include_once __DIR__ . "/frontend/pages/403.html";
+        exit();
+    }
     $request_url = filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL);
     $request_url = rtrim($request_url, '/');
     $request_url = strtok($request_url, '?');
-
-    // Check if the route contains dynamic parameters or wildcards
-    if (strpos($route, '$') !== false || strpos($route, '*') !== false) {
-        // Handle wildcards
-        if (strpos($route, '*') !== false) {
-            $route_pattern = str_replace('*', '.*', $route);
-            if (preg_match('#^' . $route_pattern . '$#', $request_url, $matches)) {
-                // Handle dynamic parameters in the route
-                $route_parts = explode('/', $route);
-                array_shift($route_parts); // Remove leading empty string
-                foreach ($route_parts as $i => $part) {
-                    if (preg_match("/^\$/", $part)) {
-                        $param_name = ltrim($part, '$');
-                        $$param_name = $matches[$i + 1]; // $i + 1 because $matches[0] is the full match
-                    }
-                }
-                if (is_callable($callback)) {
-                    call_user_func_array($callback, array_slice($matches, 1));
-                    exit();
-                }
-                include_once __DIR__ . "/$path_to_include";
-                exit();
-            }
-            return; // If not matched, exit function
-        }
-
-        // Handle dynamic parameters
-        $route_parts = explode('/', $route);
-        $request_url_parts = explode('/', $request_url);
-        array_shift($route_parts); // Remove leading empty string
-        array_shift($request_url_parts); // Remove leading empty string
-        
-        if (count($route_parts) != count($request_url_parts)) {
-            return;
-        }
-        
-        $parameters = [];
-        for ($i = 0; $i < count($route_parts); $i++) {
-            $route_part = $route_parts[$i];
-            if (preg_match("/^\$/", $route_part)) {
-                $param_name = ltrim($route_part, '$');
-                array_push($parameters, $request_url_parts[$i]);
-                $$param_name = $request_url_parts[$i];
-            } else if ($route_parts[$i] != $request_url_parts[$i]) {
-                return;
-            }
-        }
-        
-        if (is_callable($callback)) {
-            call_user_func_array($callback, $parameters);
-            exit();
-        }
-        include_once __DIR__ . "/$path_to_include";
-        exit();
-    }
-
-    // Handle static routes
-    if ($route == $request_url) {
+    $route_parts = explode('/', $route);
+    $request_url_parts = explode('/', $request_url);
+    array_shift($route_parts);
+    array_shift($request_url_parts);
+    if ($route_parts[0] == '' && count($request_url_parts) == 0) {
         if (is_callable($callback)) {
             call_user_func_array($callback, []);
             exit();
@@ -125,6 +83,26 @@ function route($route, $path_to_include) {
         include_once __DIR__ . "/$path_to_include";
         exit();
     }
+    if (count($route_parts) != count($request_url_parts)) {
+        return;
+    }
+    $parameters = [];
+    for ($__i__ = 0; $__i__ < count($route_parts); $__i__++) {
+        $route_part = $route_parts[$__i__];
+        if (preg_match("/^[$]/", $route_part)) {
+            $route_part = ltrim($route_part, '$');
+            array_push($parameters, $request_url_parts[$__i__]);
+            $$route_part = $request_url_parts[$__i__];
+        } else if ($route_parts[$__i__] != $request_url_parts[$__i__]) {
+            return;
+        }
+    }
+    if (is_callable($callback)) {
+        call_user_func_array($callback, $parameters);
+        exit();
+    }
+    include_once __DIR__ . "/$path_to_include";
+    exit();
 }
 
 function out($text) {
@@ -200,14 +178,16 @@ register_shutdown_function(function() {
     }
 });
 
-function serve_static_file($directory, $mimeType, $path) {
-    $filePath = __DIR__ . $directory . '/' . $path;
-    if (file_exists($filePath)) {
-        header('Content-Type: ' . $mimeType);
-        readfile($filePath);
+function serve_static_file($dir, $mimeType, $path) {
+    $file = __DIR__ . $dir . '/' . $path;
+    if (file_exists($file)) {
+        header("Content-Type: $mimeType");
+        readfile($file);
         exit();
     } else {
-        include_once __DIR__ . '/frontend/pages/404.html';
+        http_response_code(404);
+        include_once __DIR__ . "/frontend/pages/404.html";
         exit();
     }
 }
+?>

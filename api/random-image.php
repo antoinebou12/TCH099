@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . "/../utils/utils.php");
+require_once(__DIR__ . "/utils/utils.php");
 
 function getRandomCatImage() {
     $catApiUrl = 'https://api.thecatapi.com/v1/images/search';

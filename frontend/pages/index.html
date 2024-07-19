@@ -5,6 +5,11 @@
     <title>Index</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <header class="bg-primary text-white text-center py-3">
@@ -14,7 +19,6 @@
     <div class="container my-4">
         <section id="userInformation" class="mb-4">
             <h2>Welcome, <span id="username"></span></h2>
-            <button id="logoutButton" class="btn btn-danger mt-2">Logout</button>
             <h3 class="mt-4">Your Information</h3>
             <ul class="list-group">
                 <li class="list-group-item">Email: <span id="email"></span></li>
@@ -29,6 +33,26 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            function createLoginButton(){
+                const loginButton = document.createElement('a');
+                loginButton.href = '/login';
+                loginButton.textContent = 'Login';
+                loginButton.classList.add('btn', 'btn-primary');
+                loginButton.id = 'loginButton';
+                var h2 = document.getElementsByTagName('h2')[0];
+                h2.appendChild(loginButton);
+            }
+
+            function createLogoutButton(){
+                const logoutButton = document.createElement('button');
+                logoutButton.textContent = 'Logout';
+                logoutButton.classList.add('btn', 'btn-danger');
+                logoutButton.id = 'logoutButton';
+                document.body.appendChild(logoutButton);
+                var h2 = document.getElementsByTagName('h2')[0];
+                h2.appendChild(logoutButton);
+            }
+
             // Fetch user details from session
             fetch('/api/user_details')
                 .then(response => response.json())
@@ -37,8 +61,12 @@
                         document.getElementById('username').textContent = user.data.username;
                         document.getElementById('email').textContent = user.data.email;
                         document.getElementById('role').textContent = user.data.role;
+                        createLogoutButton();
                     } else if (user.redirect) {
                         window.location.href = user.redirect;
+                        createLoginButton();
+                    } else {
+                        createLoginButton();
                     }
                 });
 

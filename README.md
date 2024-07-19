@@ -253,7 +253,8 @@ To deploy your application on Vercel:
 3. **Deploy your application:**
 
    ```sh
-   vercel
+   vercel build
+   vercel deploy --prebuilt
    ```
 
 

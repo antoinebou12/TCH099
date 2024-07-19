@@ -4,26 +4,7 @@
             "runtime": "vercel-php@0.7.1"
         }
     },
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/$1"
-        }
-    ],
-    "builds": [
-        {
-            "src": "api/*.php",
-            "use": "@vercel/php"
-        },
-        {
-            "src": "frontend/pages/*",
-            "use": "@vercel/static"
-        }
-    ],
-    "build": {
-        "env": {
-            "COMPOSER_VENDOR_DIR": "vendor"
-        },
-        "command": "composer install"
-    }
+    "rewrites": [
+        { "source": "/(.*)", "destination": "/api/router.php" }
+    ]
 }

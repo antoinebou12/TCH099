@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy PHP app to Azure Web App - phptch099example
+name: Build and deploy PHP app to Azure Web App - tch099examplephp
 
 on:
   push:
@@ -61,15 +61,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_AEE76C8F5AD745189823805F6CBEFAD1 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_6C02AE4E5A99462E82A9C18CAC02F13A }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_BA20D655B6B74C86B2CA6C03D93B0EE2 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_124B213107BC419F895527DA53DED4A7 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_1CFB058D1FB84F78BA40A7DBBFEAFAAB }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_53E79084BB6E421DABD5ACB7AF968DA7 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'phptch099example'
+          app-name: 'tch099examplephp'
           slot-name: 'Production'
           package: .
           

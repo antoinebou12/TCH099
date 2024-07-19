@@ -7,7 +7,4 @@
         "ext-pdo_mysql": "*",
         "vlucas/phpdotenv": "^5.3"
     },
-    "scripts": {
-        "dev": "php -S localhost:8080 -t api api/router.php"
-    }
 }

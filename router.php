@@ -11,7 +11,7 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 
 // Check for vendor autoload
-if (!file_exists(__DIR__.'/vendor/autoload.php')) {
+if (!file_exists(__DIR__.'vendor/autoload.php')) {
     throw new Exception('vendor/autoload.php not found. Did you run composer install?');
 }
 

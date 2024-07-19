@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     gnupg2 \
     unixodbc-dev \
     git \
+    libssl-dev  \
     && docker-php-ext-install zip
 
 # Install PHP extensions

@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . "/../utils/utils.php");
+require_once(__DIR__ . "utils/utils.php");
 
 $langue = isset($_GET['langue']) ? $_GET['langue'] : 'fr';
 

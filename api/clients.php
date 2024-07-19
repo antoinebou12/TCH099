@@ -1,8 +1,5 @@
 <?php
-session_start();
 require_once(__DIR__ . "/utils/utils.php");
-
-header("Content-Type: application/json");
 
 if (isset($_SESSION['user_loggedin']) && $_SESSION['user_details']['role'] === 'admin') {
     try {

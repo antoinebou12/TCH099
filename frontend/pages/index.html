@@ -51,6 +51,15 @@
                 document.body.appendChild(logoutButton);
                 var h2 = document.getElementsByTagName('h2')[0];
                 h2.appendChild(logoutButton);
+                logoutButton.addEventListener('click', () => {
+                    fetch('/api/logout', { method: 'POST' })
+                        .then(response => response.json())
+                        .then(result => {
+                            if (result.status === 'success') {
+                                window.location.href = '/login';
+                            }
+                        });
+                });
             }
 
             // Fetch user details from session

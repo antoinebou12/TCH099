@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . "/utils/utils.php");
 
-$langue = isset($_GET['langue']) ? $_GET['langue'] : 'fr';
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $body = json_decode(file_get_contents("php://input"));
@@ -9,6 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $prenom = $body->prenom ?? 'John';
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // ?nom=John&prenom=Doe
+    $langue = isset($_GET['langue']) ? $_GET['langue'] : 'fr';
+    $body = json_decode(file_get_contents('php://input'));
     $nom = $_GET['nom'] ?? 'Doe';
     $prenom = $_GET['prenom'] ?? 'John';
 } else {
@@ -21,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Check if user is logged in and modify the nom if authenticated
 if (isset($_SESSION['user_loggedin'])) {
     $userDetails = $_SESSION['user_details'];
-    $nom = $userDetails['username']; // Change the nom to the logged-in user's username
+    $prenom = $userDetails['username']; // Change the nom to the logged-in user's username
 }
 
 $reponse = [

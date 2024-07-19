@@ -34,23 +34,13 @@ post('/api/hello-world/$langue', 'api/hello-world.php'); // POST
 get('/api/hello-world/$langue', 'api/hello-world.php'); // GET
 get('/api/random-image', 'api/random-image.php'); // GET
 
+
+
 // 404 Route
 any('/404', 'frontend/pages/404.html');
 // 403 Route
 any('/403', 'frontend/pages/403.html');
 
-// Static File Routes
-get('/css/*', function($path) {
-    serve_static_file('/frontend/css', 'text/css', $path);
-});
 
-get('/js/*', function($path) {
-    serve_static_file('/frontend/js', 'application/javascript', $path);
-});
-
-get('/images/*', function($path) {
-    $mimeType = mime_content_type(__DIR__ . '/frontend/images/' . $path);
-    serve_static_file('/frontend/images', $mimeType, $path);
-});
-
+// get('/images/logo.png', 'frontend/images/logo.png');
 ?>

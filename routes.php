@@ -33,7 +33,7 @@ get('/api/clients', 'api/clients.php'); // GET
 post('/api/hello-world/$langue', 'api/hello-world.php'); // POST
 get('/api/hello-world/$langue', 'api/hello-world.php'); // GET
 get('/api/random-image', 'api/random-image.php'); // GET
-
+post('/api/random-image', 'api/random-image.php'); // POST
 
 
 // 404 Route

@@ -2,8 +2,8 @@
 require_once __DIR__.'/router.php';
 
 // Home Routes
-get('/', 'frontend/pages/index.html');
-post('/', 'frontend/pages/index.html');
+get('/home', 'frontend/pages/index.html');
+post('/home', 'frontend/pages/index.html');
 
 // Authentication Routes
 get('/login', 'frontend/pages/login.html'); // GET

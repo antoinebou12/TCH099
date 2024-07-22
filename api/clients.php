@@ -29,7 +29,7 @@ if (isset($_SESSION['user_loggedin']) && $_SESSION['user_details']['role'] === '
     echo json_encode([
         'status' => 'error',
         'message' => 'Access denied',
-        'redirect' => '/'
+        'redirect' => '/home'
     ]);
 }
 ?>

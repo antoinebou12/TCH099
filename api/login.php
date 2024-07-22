@@ -14,7 +14,7 @@ try {
         if (loginUser($username, $password)) {
             $response['status'] = 'success';
             $response['message'] = 'Login successful';
-            $response['redirect'] = '/';
+            $response['redirect'] = '/home';
         } else {
             $response['status'] = 'error';
             $response['message'] = 'Invalid username or password';

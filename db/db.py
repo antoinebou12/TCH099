@@ -59,9 +59,9 @@ def main():
     connection = create_connection(db_host, db_user, db_password, db_database)
 
     if connection:
-        execute_script_from_file(connection, "db/1create.sql")
-        execute_script_from_file(connection, "db/2contraines.sql")
-        execute_script_from_file(connection, "db/3insert.sql")
+        execute_script_from_file(connection, "1create.sql")
+        execute_script_from_file(connection, "2contraines.sql")
+        execute_script_from_file(connection, "3insert.sql")
 
         connection.close()
 

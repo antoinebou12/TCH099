@@ -254,8 +254,8 @@ https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs
 https://learn.microsoft.com/en-ca/entra/identity-platform/howto-create-service-principal-portal
 https://portal.azure.com/#create/Microsoft.AppServiceWebAppDatabaseV3
 
-![alt text](guide/github-page.png)
-![alt text](guide/image.png)
-![alt text](guide/image-1.png)
-![alt text](guide/image-2.png)
-![alt text](guide/image-3.png)
+![alt text](docs/guide/github-page.png)
+![alt text](docs/guide/image.png)
+![alt text](docs/guide/image-1.png)
+![alt text](docs/guide/image-2.png)
+![alt text](docs/guide/image-3.png)

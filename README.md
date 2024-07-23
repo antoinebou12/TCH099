@@ -29,13 +29,13 @@ This repo will be used as demo php web app to deploy on azure cloud
 │   ├── logout.php              # API endpoint for user logout
 │   ├── randomimage.php         # API endpoint to get a random image
 │   ├── signup.php              # API endpoint for user signup
-│   └── user_details.php        # API endpoint to fetch user details
+│   ├── user_details.php        # API endpoint to fetch user details
 │   └── clients.php             # API endpoint to fetch all clients
 
 ├── db/                         # Folder containing SQL scripts for database setup
 │   ├── 1create.sql              # SQL script for creating database tables
 │   ├── 2contraines.sql          # SQL script for adding constraints
-│   └── 3insert.sql              # SQL script for inserting initial data into database tables
+│   ├── 3insert.sql              # SQL script for inserting initial data into database tables
 │   └── db.py                # Python script to create, alter and inserting initial data into database tables
 
 ├── frontend/                   # Folder containing frontend assets and pages

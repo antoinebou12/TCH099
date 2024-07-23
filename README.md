@@ -291,7 +291,7 @@ cp /home/site/wwwroot/nginx.conf /etc/nginx/sites-available/default && service n
 
 ![SSH](https://github.com/user-attachments/assets/eb93150a-519c-4cc9-973d-f6bff36b8abe)
 
-### 6. Create .ENV file with the right variable based 
+### 6. Create .ENV file with the right variable based
 
 ```
 DB_HOST=tch099-db

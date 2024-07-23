@@ -284,6 +284,7 @@ docker-compose up -d --build
 
 ### 4. Add Startup Command
 ```bash
+# put this line into the startup command
 cp /home/site/wwwroot/nginx.conf /etc/nginx/sites-available/default && service nginx reload
 ```
 

@@ -6,7 +6,7 @@ import os
 load_dotenv()
 
 # Database connection details
-db_host = 'localhost'
+db_host = os.getenv('DB_HOST')
 db_user = os.getenv('MYSQL_USER')
 db_password = os.getenv('MYSQL_PASSWORD')
 db_database = os.getenv('MYSQL_DATABASE')

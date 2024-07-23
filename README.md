@@ -1,4 +1,6 @@
-# Template for PHP Web Applications
+# tch099-demo-web-app
+This repo will be used as demo php web app to deploy on azure cloud
+
 
 ## Features
 
@@ -12,6 +14,7 @@
 
 - Docker
 - Docker Compose
+- Azure Student Account
 
 ## Project Structure
 
@@ -58,6 +61,7 @@
 ├── docker-compose.yml          # Docker Compose configuration file for setting up the development environment
 ```
 
+
 ## Actors
 
 - **User:** A user who interacts with the application by logging in, signing up, and accessing various features.
@@ -81,21 +85,12 @@
 
 ![User Class DB](https://www.plantuml.com/plantuml/dpng/RSnD2W8n38RXVK-HlNY70GyYeGqOIDgQ7rs8TzTk1i5Pvdd3jtcWHQgKAkWE5s7guV0g02Tky42hDpJ0Z77cNetqsrTC9-kejBzavtlIIgJ8Sk0JtP_3zjLbDeH-xsg4GUsA0S5A7gXpUSxsx--oKM-fyW40)
 
-## Sequence Diagrams
-
-### Login Process
-
-![Login Sequence Diagram](https://www.plantuml.com/plantuml/dpng/TPC_Ry8m4CLtVmgB2GQQFKD5QQ12gWGgxLO9kSaHh0R7yX-f_VQD4plEkR2--ztbFTzbfGrJnbuRmahJAlgXGH4YEusNN39Xw6ohMc50L9zYthGr5myNSsqMCyeqtMvEhqwwsw1vBQp47STUkzl2HGK_k6Fd9DpmTDYDVkH53cWdOZ-H3LOGZAmWEkicjzOuEaxkfLkmrQ1E5HZ66urQt6iMWuxx2cRO5zFG-IfRSUPrz5Mi2N5zTFaONokdUmc2JfwJZ3K7nZ0vFUoFxpHZacSnCl60nujrJXNKN1jGxblp1IdMT9aCSfKHWmhDmERUUaWnmrj1jIrBq3exTx6j0fIctuuF4u-9X8gF4h2OP5mq6SiXHrzAGtZ6Ps3MN40ONZ83rNG2CZLezztxE_JkuvcIK75KilMSlcnyXFH8I8A6F3MOYHf39RYFvWV-7uOS5rpBXlrIEscvbUovuUKtzOUUnXfal9Nmav08X1n34Iq6ZV6qVsyq07bAk1M8obwRFm00)
-
-### Check Admin Process
-
-![Admin](https://www.plantuml.com/plantuml/dpng/TP1DIi0m48NtSugtr4NLHLU1IaLFKEW1GZhIOFfZPhBmzgQD44enYy1yx-LZI2zgewOba7MwHOp2aMZFp3k_srKnR4avtf5SqAW-2ELp2D2ybauq6FWxiIYUxRJubKvS2sBmFhFxAXCLbjFYC_3oTZnxU2GRj4xeEcXCJ01A5KrLrgZwZhKCFhpimVxWtELfrYKG1-6h-DC6-STSivjwuCb7TWhTqBwqV_9reZvV-Nz_0G00)
-
 
 ## Seed Data
 
 ```
-run db.ipynb
+cd db.py
+python3 -m pip3 install mysql-connector-
 ```
 
 
@@ -105,7 +100,11 @@ run db.ipynb
 
 #### Login
 
+![](https://www.plantuml.com/plantuml/dpng/TPC_Ry8m4CLtVmgB2GQQFKD5QQ12gWGgxLO9kSaHh0R7yX-f_VQD4plEkR2--ztbFTzbfGrJnbuRmahJAlgXGH4YEusNN39Xw6ohMc50L9zYthGr5myNSsqMCyeqtMvEhqwwsw1vBQp47STUkzl2HGK_k6Fd9DpmTDYDVkH53cWdOZ-H3LOGZAmWEkicjzOuEaxkfLkmrQ1E5HZ66urQt6iMWuxx2cRO5zFG-IfRSUPrz5Mi2N5zTFaONokdUmc2JfwJZ3K7nZ0vFUoFxpHZacSnCl60nujrJXNKN1jGxblp1IdMT9aCSfKHWmhDmERUUaWnmrj1jIrBq3exTx6j0fIctuuF4u-9X8gF4h2OP5mq6SiXHrzAGtZ6Ps3MN40ONZ83rNG2CZLezztxE_JkuvcIK75KilMSlcnyXFH8I8A6F3MOYHf39RYFvWV-7uOS5rpBXlrIEscvbUovuUKtzOUUnXfal9Nmav08X1n34Iq6ZV6qVsyq07bAk1M8obwRFm00)
+
 **Endpoint:** `/api/login.php`
+
+![Login Sequence Diagram](https://www.plantuml.com/plantuml/dpng/ROv1QyCm38Nl-XMYf_RGvPx3w49M60nQs7OR3CrH6uEZ65l-_xCNvYxGwzEdzxv3L0gQ9WTaT0xu4Ja0-9nPOps9ukOOPb6MuLEsRhvQUHXrShiDKiJZyzThYTOFJ-UNolhHBsWExx4zANrJvFnWPhdOw-sZxm2W-E3-iIwrUF8iU1E1lqkXwaYBvzFREpRaRLD5e9mhstVjKbCcjZleEzolAtwtAUd8aeL9UVZVi99QifYCuHYR2rcN0iE1PKYJ-m40)
 
 **Method:** `POST`
 
@@ -128,6 +127,8 @@ run db.ipynb
 ```
 
 #### Signup
+
+![Signup Sequence Diagram](https://www.plantuml.com/plantuml/dpng/RP2_JiD03CPtFuNLgHrAzWoeHA4IKoiA6n8o5pSzANLEjlF-v8hK8uZry-_x8-_CINsw3a31HyLtOmL8inP3J2IEgxsEuYpTXwmjzZAbXujVXyqAoN3__7cwQKlBq_6bqEcIVk1P_PTkoUcBZ6TB6EKS-s9f6u0y2RUFfQl6GsB1NsFWVijWwQdnU3YzOKKfLcKD523ZRLEZSX_DMNFNUWDjWzi_GVbonxXRP2p7lTuW9O-Ze4qXi5brfZXCoW0xbcv-zpS0)
 
 **Endpoint:** `/api/signup.php`
 
@@ -155,6 +156,8 @@ run db.ipynb
 
 #### Logout
 
+![Logout](https://www.plantuml.com/plantuml/dpng/NP0nQyCm48Nt-nL7fcH8idiegQi60eK6scw1S9NLH5Gv2UaC_VcrRBUEl3vzzxs7TaaeIdjpG5fyn8za8a3eCgjj81PSxADdCToSU6cvCJ-RgzpSQe6KSFzyFkIeF7Wy7awyTVxYMzc4Q-ZHBZo_z549AnBwf6Gwk_RyPI_vOh2h6W3o85m__5TL-EIi_iRHzHTdPAgeyFZwzevR2lPk1qn0nbLTuV2OEvOhK3MkPvgHJgtM9gL2K6oQSJl3JVxJNm00)
+
 **Endpoint:** `/api/logout.php`
 
 **Method:** `POST`
@@ -169,6 +172,8 @@ run db.ipynb
 ```
 
 #### User Details
+
+![User Details](https://www.plantuml.com/plantuml/dpng/ROu_Ry8m4CNt-nGd9XY0FKD58qF5r0xjXXHTuojOSYwMVPRQRzyO-eSGrdVtUx-tIKfHS-U1MkqZlYME0126qBKka2ZETh4NPR47cJkn_BawQUSNCwI4ksspBz4OU7pP7sIT4yV6ifBpQHLEuGmCfwOup2KVSuQKtYdn86fx-N37Wbr4fWOe72uV_gGLFWSM_Dy4lvVoTMEgy6dxYciARZ8CRbuBRUeAZwnNwNm1fiRblURpi9_2QTbeiN4fUFh2V8t0XiNcpdy3)
 
 **Endpoint:** `/api/user_details.php`
 
@@ -187,9 +192,15 @@ run db.ipynb
 }
 ```
 
+### Admin
+![Admin](https://www.plantuml.com/plantuml/dpng/TP1DIi0m48NtSugtr4NLHLU1IaLFKEW1GZhIOFfZPhBmzgQD44enYy1yx-LZI2zgewOba7MwHOp2aMZFp3k_srKnR4avtf5SqAW-2ELp2D2ybauq6FWxiIYUxRJubKvS2sBmFhFxAXCLbjFYC_3oTZnxU2GRj4xeEcXCJ01A5KrLrgZwZhKCFhpimVxWtELfrYKG1-6h-DC6-STSivjwuCb7TWhTqBwqV_9reZvV-Nz_0G00)
+
+
 ### Hello World
 
 #### Get Greeting
+
+![Hello World](https://www.plantuml.com/plantuml/dpng/RO_DJiCm48JlVefLnI4vXDnpG2KA1IIaLlo8IoMq98jZuQmjUoDUdxe5L9TUFVFjDrv6mI3pP1NsuWAyH0fAUGnYUkEH1HQhu5Y8XoqN8rdhgYyNx70vocJB1M24rStRNGfox7fpl-NwcF2Zt_TtoG5uJSyvrQ7WEqRQoNh77qOdwg3fMgNIFAYk_fGDh3qndEvIltdgvhe6DkkdPwZHc-DnzOL5rZEfl9tuhcsW7wd_JF87fmqNfUfQgCxStk-pgGDHKEPuUkyCeuafeD1j81B3kYZ_GTcF7qdcmA1_wZ1HZAX9gINnC4_s6m00)
 
 **Endpoint:** `/api/hello-world/$langue`
 
@@ -213,6 +224,8 @@ run db.ipynb
 
 ### Random Image
 
+![Random Image](https://www.plantuml.com/plantuml/dpng/RP31IiGm48RlynJ3ddOFwzxt85NQIa5GYhqLP6nZ6sWc8Pc-lsaLDUqUP-R_-7uc2q9UPZC1TM8zDa5v01TtkjEEMF1GUikYk6_vw8bxQyxQqA3kHZ7JwO0Ki2pUw_MIWW-lLSkNX76ZMubu-a6gPPzoEGbzK51Hs5d-rCE2VPloHu2b8fxl_wnNV76ASLSEVXCnlbLUyQbummivlMi8c-XDUb3oRsxgv-DfpwKjQoMpPrmz60d8ubVZwxy0)
+
 **Endpoint:** `/api/random-image`
 
 **Method:** `GET`
@@ -226,10 +239,11 @@ A random image URL.
 Create a `.env` file in your project root with the following content:
 
 ```
-DB_HOST=your_database_host
-MYSQL_DATABASE=your_database_name
-MYSQL_USER=your_database_user
-MYSQL_PASSWORD=your_database_password
+DB_HOST=tch099-db
+MYSQL_ROOT_PASSWORD=rootpassword
+MYSQL_DATABASE=mydatabase
+MYSQL_USER=user
+MYSQL_PASSWORD=password
 ```
 
 Follow the prompts provided by Vercel CLI to complete the deployment.
@@ -242,20 +256,51 @@ To run the application locally using Docker:
 docker-compose up -d --build
 ```
 
-### Debugging
+## Deployment on Azure with portal
+
+Source 1: https://learn.microsoft.com/en-us/azure/app-service/quickstart-php?tabs=cli&pivots=platform-linux
+Source 2: https://learn.microsoft.com/en-us/azure/app-service/configure-language-php?pivots=platform-linux
+
+
+### 1. App service create webapp and database
+
+![Create Web App and Database](https://github.com/user-attachments/assets/b2eea129-7197-4f87-aab4-40978f5cd3ad)
+
+### 2. Chose MySQL and PHP
+
+![Create Web App and Database Settings](https://github.com/user-attachments/assets/cacfc5b4-a09d-4ca2-a8b4-e83ab1e005ae)
+
+### 3. Deployement Center to make CD
+![Deployement Center](https://github.com/user-attachments/assets/2ac1d270-4c44-4d87-b1b1-95ff3e778379)
+
+### 4. Add Startup Command
+```bash
+cp /home/site/wwwroot/nginx.conf /etc/nginx/sites-available/default && service nginx reload
+```
+
+![Startup Command](https://github.com/user-attachments/assets/3108acb5-5dc6-48fe-98bd-fab10d182deb)
+
+### 5. Check Environement Variable
+
+![Environement Variable](https://github.com/user-attachments/assets/d2fe5651-4a29-490c-a1e3-c71401e411f5)
+
+### 6. SSH into the container
+
+![SSH](https://github.com/user-attachments/assets/eb93150a-519c-4cc9-973d-f6bff36b8abe)
+
+### 6. Create .ENV file with the right variable based 
 
 ```
-docker-compose ps
-docker exec -it tch099-web-1
-ls
+DB_HOST=tch099-db
+MYSQL_ROOT_PASSWORD=rootpassword
+MYSQL_DATABASE=mydatabase
+MYSQL_USER=user
+MYSQL_PASSWORD=password
 ```
 
-https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Cwindows&tryIt=true&source=docs#code-try-11
-https://learn.microsoft.com/en-ca/entra/identity-platform/howto-create-service-principal-portal
-https://portal.azure.com/#create/Microsoft.AppServiceWebAppDatabaseV3
+![ENV](https://github.com/user-attachments/assets/e92362e5-2ad2-41a6-8b3b-c4586033251c)
 
-![alt text](docs/guide/github-page.png)
-![alt text](docs/guide/image.png)
-![alt text](docs/guide/image-1.png)
-![alt text](docs/guide/image-2.png)
-![alt text](docs/guide/image-3.png)
+
+
+
+

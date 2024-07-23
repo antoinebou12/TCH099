@@ -263,10 +263,12 @@ docker-compose up -d --build
 
 ### Deployment diagram
 
-![Deployement diagram](https://www.plantuml.com/plantuml/dpng/ROunJyCm58JtzoiEBqpz0moeKHhHeQ2q3M903Axpa2mvTl6pAm7AVmS7HK9gl3tVVNUtbgHZoeEZcvxVhMSSchghdXvs3OpJ8aItsFmfFlGif4qA4S_2aSYua7kewYj7HZqTZR_O6Fp0FYby4u29WthX4uuSBnpd__9UsssB8bNdixD69nlyswIEz0_UwAHFMdWfuV7pkDzXTipmM8RNmNis9LEeBCPgTRzSYJkeRTUrEF17PacYQD5N4gug2pmVs6UEbd_vDVi-3-u7)
+![Deployement diagram](https://www.plantuml.com/plantuml/dpng/XP5FImCn44Vlyob-vk9fmMjxa2vhiOTQjksg1_6GPaSCngJcZwAotzsD4A5GwTp2UxnCo2n4wMDwDNJMyvEsZCsywUhLzN8EPMG8H595vt4Rs1Cfur8FKNybpsZoGU2RC8vrFKFSwJ4c3LOSFvn_AV2Ft_CEM_Rlx0igyz0kMcHSx_T6Ancriu_560uhLpBAdGpyN-hcSxjUebXJHFLyCPbKuTS-Z0uq49sZSTQoodS6oYz5LLqUNmbJY4NNjTZmM-8GWw3ZNYwSs2It2iCwiTSyvcPi-_53VW00)
 
-Source 1: https://learn.microsoft.com/en-us/azure/app-service/quickstart-php?tabs=cli&pivots=platform-linux
-Source 2: https://learn.microsoft.com/en-us/azure/app-service/configure-language-php?pivots=platform-linux
+
+- Source 1: https://learn.microsoft.com/en-us/azure/app-service/quickstart-php?tabs=cli&pivots=platform-linux
+
+- Source 2: https://learn.microsoft.com/en-us/azure/app-service/configure-language-php?pivots=platform-linux
 
 
 ### 1. App service create webapp and database

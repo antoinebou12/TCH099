@@ -22,17 +22,21 @@ This repo will be used as demo php web app to deploy on azure cloud
 /
 
 ├── api/                        # Folder containing API endpoint scripts
+└── utils/                      # Folder containing utility scripts
+    └── utils.php               # Utility functions for the application
 │   ├── hello-world.php         # API endpoint for Hello World messages
 │   ├── login.php               # API endpoint for user login
 │   ├── logout.php              # API endpoint for user logout
 │   ├── randomimage.php         # API endpoint to get a random image
 │   ├── signup.php              # API endpoint for user signup
 │   └── user_details.php        # API endpoint to fetch user details
+│   └── clients.php             # API endpoint to fetch all clients
 
 ├── db/                         # Folder containing SQL scripts for database setup
-│   ├── contraines.sql          # SQL script for adding constraints
-│   ├── create.sql              # SQL script for creating database tables
-│   └── insert.sql              # SQL script for inserting initial data into database tables
+│   ├── 1create.sql              # SQL script for creating database tables
+│   ├── 2contraines.sql          # SQL script for adding constraints
+│   └── 3insert.sql              # SQL script for inserting initial data into database tables
+│   └── db.py                # Python script to create, alter and inserting initial data into database tables
 
 ├── frontend/                   # Folder containing frontend assets and pages
 │   ├── css/                    # Folder containing CSS files
@@ -43,22 +47,20 @@ This repo will be used as demo php web app to deploy on azure cloud
 │   └── pages/                  # Folder containing HTML pages
 │       ├── hello-world.html    # HTML page for Hello World functionality
 │       ├── index.html          # HTML page for the homepage
+│       ├── admin.html          # HTML page that see all the clients
 │       ├── login.html          # HTML page for the login form
 │       ├── random-image.html   # HTML page to display a random image
-│       └── signup.html         # HTML page for the signup form
+│       ├── signup.html         # HTML page for the signup form
+│       └── 404.html            # HTML page for errors 404 Not Found
 
 ├── config.php                  # Main configuration file for the project
 ├── router.php                  # Main router file for handling URL routing
 ├── routes.php                  # File defining the routes for the application
-└── utils/                      # Folder containing utility scripts
-    └── utils.php               # Utility functions for the application
 
-├── vercel.json                 # Vercel configuration file for deployment
 ├── composer.json               # Composer configuration file for managing PHP dependencies
-├── conf/                       # Folder containing configuration files
-│   └── js-no-cache.conf        # Configuration file to disable JavaScript caching
-
+├── docker-compose.yml          # Dockerfile to build the docker image
 ├── docker-compose.yml          # Docker Compose configuration file for setting up the development environment
+├── nginx.conf                  # nginx configuration for Azure deployment
 ```
 
 
@@ -75,11 +77,11 @@ This repo will be used as demo php web app to deploy on azure cloud
 - [X] **View Hello World Message:** As a user, I want to see a "Hello World" message with my name.
 - [X] **View Random Image:** As a user, I want to see a random image displayed on the page.
 - [X] **View User Details:** As a user, I want to view my profile details such as username and email address.
-- [] **Admin Login:** As an admin, I want to log in to my account to access admin features.
+- [X] **Admin Login:** As an admin, I want to log in to my account to access admin features like too se all clients.
 
 ## Use Case
 
-![Use Case](https://www.plantuml.com/plantuml/dpng/PO_H2eCm34NV-nN1z_t243OGOJ3Ow5v7q50AjagRij-VkeKeFkQSNdfldHaJbp0Ox7XCO3CbOqgc3ZD1zVGkWfqgm0psybvEEwc-ZGxQA7Q-shYNzy8REr-gNvu-wtTm9KO_P7cuY8N_iIOQYfIG2Pf4n3uwIOWGleqmF33sOu0se2DDy0-lr9Yrn-ci6vN8BWKoHScXiwfZkQtRrwWfzYKCNm00)
+![Use Case](https://www.plantuml.com/plantuml/dpng/PP51QiGm34NtFeMOVQzGPfZ242WKMjnj4Oam1bi9jaolNyUDgnJlelSYyhzopO99IWm6PraJs4pfUBmjqRCn9TECcU3ouHs3tIw06UpzQn_jflfrTJ1njtMQ-BzyAtAoTLBzwUcxVHfUID27t5_SnSuFh1iFOaee18z499vTt-YYy_EAm3loiaQO8ZhI3Vd5ZPuB4y4j1BW7Jon_cIgkz836jDXFptgIJlGC7MXp9KD5LKCNTMFgzhUg6nDUYPSImmy0)
 
 ## Class Diagram
 
@@ -89,8 +91,9 @@ This repo will be used as demo php web app to deploy on azure cloud
 ## Seed Data
 
 ```
-cd db.py
-python3 -m pip3 install mysql-connector-
+cd db.py # make sure to have a .env in folder with correct variable to the database
+python3 -m pip3 install mysql-connector-python python-dotenv
+python3 db.py
 ```
 
 
@@ -299,8 +302,3 @@ MYSQL_PASSWORD=password
 ```
 
 ![ENV](https://github.com/user-attachments/assets/e92362e5-2ad2-41a6-8b3b-c4586033251c)
-
-
-
-
-

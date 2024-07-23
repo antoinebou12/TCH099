@@ -1,7 +1,6 @@
 # tch099-demo-web-app
 This repo will be used as demo php web app to deploy on azure cloud
 
-
 ## Features
 
 - **API Endpoints:** Create custom API endpoints for your application.
@@ -10,11 +9,81 @@ This repo will be used as demo php web app to deploy on azure cloud
 - **Frontend Pages:** Create frontend pages with HTML, CSS, and JavaScript.
 - **Docker Support:** Run the application locally using Docker Compose.
 
+### Epic: User Account and Profile Management
+
+#### User Story: User Signup
+As a user, I want to create an account on the platform so that I can access the features.
+
+**Sub-tasks:**
+- [x] Design the signup form with fields for username, email, password, role.
+- [x] Implement backend logic to handle user data submission and validation.
+- [x] Integrate password encryption for secure storage.
+- [x] Test the signup process to ensure it works as expected.
+
+#### User Story: User Login
+As a user, I want to log in to my account so that I can access my profile and other features.
+
+**Sub-tasks:**
+- [x] Design the login form with fields for username/email and password.
+- [x] Implement backend authentication logic to verify user credentials.
+- [x] Create sessions to maintain user login state.
+- [x] Handle incorrect login attempts with appropriate error messages.
+- [x] Test the login process for functionality and security.
+
+#### User Story: User Logout
+As a user, I want to log out of my account to secure my session.
+
+**Sub-tasks:**
+- [x] Add a logout option in the user interface.
+- [x] Implement backend logic to destroy user sessions upon logout.
+- [x] Redirect users to the homepage or login page after logout.
+- [x] Test the logout functionality to ensure sessions are properly terminated.
+
+#### User Story: View Hello World Message
+As a user, I want to see a "Hello World" message with my name.
+
+**Sub-tasks:**
+- [x] Create a personalized message template.
+- [x] Retrieve the user's name from the session data.
+- [x] Display the "Hello World" message with the user's name on the page.
+- [x] Test the message display for different user scenarios.
+
+#### User Story: View Random Image
+As a user, I want to see a random image displayed on the page.
+
+**Sub-tasks:**
+- [x] Source a collection from external API of random images.
+- [x] Implement logic to randomly select an image from the collection.
+- [x] Display the selected image on the user interface.
+- [x] Test the random image feature to ensure different images are shown each time.
+
+#### User Story: View User Details
+As a user, I want to view my profile details such as username and email address.
+
+**Sub-tasks:**
+- [x] Create a user profile page template.
+- [x] Implement backend logic to retrieve user details from the database.
+- [x] Display the user's username and email address on the profile page.
+- [x] Test the profile page to ensure accurate data display.
+
+#### User Story: Admin Login
+As an admin, I want to log in to my account to access admin features like viewing all clients.
+
+**Sub-tasks:**
+- [x] Design the admin login form with fields for username/email and password.
+- [x] Implement backend authentication logic for admin credentials.
+- [x] Create admin sessions to maintain login state.
+- [x] Develop the admin dashboard to display client information.
+- [x] Test the admin login and dashboard functionalities for proper access control.
+
+
+
 ## Prerequisites
 
 - Docker
 - Docker Compose
 - Azure Student Account
+
 
 ## Project Structure
 
@@ -69,15 +138,6 @@ This repo will be used as demo php web app to deploy on azure cloud
 - **User:** A user who interacts with the application by logging in, signing up, and accessing various features.
 - **Admin:** A user with elevated privileges who can manage users and other aspects of the application.
 
-## User Stories
-
-- [X] **User Signup:** As a user, I want to create an account on the platform so that I can access the features.
-- [X] **User Login:** As a user, I want to log in to my account so that I can access my profile and other features.
-- [X] **User Logout:** As a user, I want to log out of my account to secure my session.
-- [X] **View Hello World Message:** As a user, I want to see a "Hello World" message with my name.
-- [X] **View Random Image:** As a user, I want to see a random image displayed on the page.
-- [X] **View User Details:** As a user, I want to view my profile details such as username and email address.
-- [X] **Admin Login:** As an admin, I want to log in to my account to access admin features like too se all clients.
 
 ## Use Case
 

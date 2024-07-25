@@ -27,9 +27,6 @@ RUN curl -sSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
 RUN a2enmod rewrite
 RUN a2enmod headers
 
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
 # Set working directory
 WORKDIR /var/www/html/
 
@@ -38,15 +35,6 @@ COPY . .
 
 # Set proper permissions
 RUN chown -R www-data:www-data /var/www/html
-
-# Switch to www-data user before running composer
-USER www-data
-
-# Install PHP dependencies using Composer
-RUN composer install
-
-# Switch back to root user to perform final configurations
-USER root
 
 # Expose port 80
 EXPOSE 80

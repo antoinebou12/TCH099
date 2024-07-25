@@ -161,6 +161,7 @@ python3 db.py
 ├── routes.php                  # Fichier définissant les routes pour l'application
 ├── Dockerfile                  # Dockerfile pour construire l'image docker
 ├── docker-compose.yml          # Fichier de configuration Docker Compose pour configurer l'environnement de développement
+├── composer.json               # Gestionnaire de dépendances PHP
 ├── nginx.conf                  # Configuration nginx pour le déploiement Azure
 ```
 

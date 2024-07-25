@@ -14,7 +14,7 @@ post('/signup', 'frontend/pages/signup.html'); // POST
 get('/hello-world', 'frontend/pages/hello-world.html'); // GET
 get('/random-image', 'frontend/pages/random-image.html'); // GET
 
-// Admin Route
+// Admin Route Check Permission
 get('/admin', function() {
     if (isAdmin()) {
         include_once __DIR__ . '/frontend/pages/admin.html';

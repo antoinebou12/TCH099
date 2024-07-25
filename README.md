@@ -77,6 +77,28 @@ As an admin, I want to log in to my account to access admin features like viewin
 - [x] Test the admin login and dashboard functionalities for proper access control.
 
 
+## Environment Variables
+
+Create a `.env` file in your project root with the following content:
+
+```
+DB_HOST=tch099-db
+MYSQL_ROOT_PASSWORD=rootpassword
+MYSQL_DATABASE=mydatabase
+MYSQL_USER=user
+MYSQL_PASSWORD=password
+```
+
+Follow the prompts provided by Vercel CLI to complete the deployment.
+
+## Docker Usage
+
+To run the application locally using Docker:
+
+```
+docker-compose up -d --build
+```
+
 
 ## Prerequisites
 
@@ -162,8 +184,6 @@ python3 db.py
 ### User Authentication
 
 #### Login
-
-![](https://www.plantuml.com/plantuml/dpng/TPC_Ry8m4CLtVmgB2GQQFKD5QQ12gWGgxLO9kSaHh0R7yX-f_VQD4plEkR2--ztbFTzbfGrJnbuRmahJAlgXGH4YEusNN39Xw6ohMc50L9zYthGr5myNSsqMCyeqtMvEhqwwsw1vBQp47STUkzl2HGK_k6Fd9DpmTDYDVkH53cWdOZ-H3LOGZAmWEkicjzOuEaxkfLkmrQ1E5HZ66urQt6iMWuxx2cRO5zFG-IfRSUPrz5Mi2N5zTFaONokdUmc2JfwJZ3K7nZ0vFUoFxpHZacSnCl60nujrJXNKN1jGxblp1IdMT9aCSfKHWmhDmERUUaWnmrj1jIrBq3exTx6j0fIctuuF4u-9X8gF4h2OP5mq6SiXHrzAGtZ6Ps3MN40ONZ83rNG2CZLezztxE_JkuvcIK75KilMSlcnyXFH8I8A6F3MOYHf39RYFvWV-7uOS5rpBXlrIEscvbUovuUKtzOUUnXfal9Nmav08X1n34Iq6ZV6qVsyq07bAk1M8obwRFm00)
 
 **Endpoint:** `/api/login.php`
 
@@ -296,28 +316,6 @@ python3 db.py
 **Response:**
 
 A random image URL.
-
-## Environment Variables
-
-Create a `.env` file in your project root with the following content:
-
-```
-DB_HOST=tch099-db
-MYSQL_ROOT_PASSWORD=rootpassword
-MYSQL_DATABASE=mydatabase
-MYSQL_USER=user
-MYSQL_PASSWORD=password
-```
-
-Follow the prompts provided by Vercel CLI to complete the deployment.
-
-## Docker Usage
-
-To run the application locally using Docker:
-
-```
-docker-compose up -d --build
-```
 
 ## Deployment on Azure with Portal
 

@@ -199,4 +199,6 @@ function serve_static_file($dir, $mimeType, $path) {
         exit();
     }
 }
+
+require_once __DIR__.'/routes.php';
 ?>

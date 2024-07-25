@@ -98,14 +98,16 @@ MYSQL_PASSWORD=password
 
 Pour exécuter l'application localement en utilisant Docker:
 
-App: http://localhost:8001
+```bash
+- App: http://localhost:8001
 
-DB: mysql:host=localhost;port=3306;dbname=mydatabase
+- DB: mysql:host=localhost;port=3306;dbname=mydatabase
 
-Phpmyadmin: http://localhost:8060
+- Phpmyadmin: http://localhost:8060
 
 Nom d'utilisateur: admin
 Mot de passe: rootpassword
+```
 
 ```
 docker-compose up -d --build

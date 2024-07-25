@@ -147,9 +147,7 @@ docker-compose up -d --build
 ├── config.php                  # Main configuration file for the project
 ├── router.php                  # Main router file for handling URL routing
 ├── routes.php                  # File defining the routes for the application
-
-├── composer.json               # Composer configuration file for managing PHP dependencies
-├── docker-compose.yml          # Dockerfile to build the docker image
+├── Dockerfile                  # Dockerfile to build the docker image
 ├── docker-compose.yml          # Docker Compose configuration file for setting up the development environment
 ├── nginx.conf                  # nginx configuration for Azure deployment
 ```
@@ -169,15 +167,13 @@ docker-compose up -d --build
 
 ![User Class DB](https://www.plantuml.com/plantuml/dpng/RSnD2W8n38RXVK-HlNY70GyYeGqOIDgQ7rs8TzTk1i5Pvdd3jtcWHQgKAkWE5s7guV0g02Tky42hDpJ0Z77cNetqsrTC9-kejBzavtlIIgJ8Sk0JtP_3zjLbDeH-xsg4GUsA0S5A7gXpUSxsx--oKM-fyW40)
 
-
-## Seed Data
+## Seed Database
 
 ```
 cd db.py # make sure to have a .env in folder with correct variable to the database
 python3 -m pip3 install mysql-connector-python python-dotenv
 python3 db.py
 ```
-
 
 ## API Endpoints
 
@@ -356,7 +352,7 @@ cp /home/site/wwwroot/nginx.conf /etc/nginx/sites-available/default && service n
 
 ![SSH](https://github.com/user-attachments/assets/eb93150a-519c-4cc9-973d-f6bff36b8abe)
 
-### 6. Create .ENV file with the right variable based
+### 6. Create .ENV file with the right variable based on azure env
 
 ```
 DB_HOST=tch099-db

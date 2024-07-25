@@ -1,85 +1,90 @@
 # tch099-demo-web-app
-This repo will be used as demo php web app to deploy on azure cloud
+Ce dépôt sera utilisé comme application web PHP démo à déployer sur le cloud Azure
 
-## Features
+## Prérequis
 
-- **API Endpoints:** Create custom API endpoints for your application.
-- **User Authentication:** Implement user authentication with login, signup, and logout functionality.
-- **Database Integration:** Use MySQL database for storing user data and other information.
-- **Frontend Pages:** Create frontend pages with HTML, CSS, and JavaScript.
-- **Docker Support:** Run the application locally using Docker Compose.
+- Docker
+- Docker Compose
+- Compte Azure Student
 
-### Epic: User Account and Profile Management
+## Fonctionnalités
 
-#### User Story: User Signup
-As a user, I want to create an account on the platform so that I can access the features.
+- **Points de terminaison API:** Créez des points de terminaison API personnalisés pour votre application.
+- **Authentification utilisateur:** Implémentez l'authentification utilisateur avec les fonctionnalités de connexion, inscription et déconnexion.
+- **Intégration de base de données:** Utilisez la base de données MySQL pour stocker les données des utilisateurs et autres informations.
+- **Pages Frontend:** Créez des pages frontend avec HTML, CSS et JavaScript.
+- **Support Docker:** Exécutez l'application localement en utilisant Docker Compose.
 
-**Sub-tasks:**
-- [x] Design the signup form with fields for username, email, password, role.
-- [x] Implement backend logic to handle user data submission and validation.
-- [x] Integrate password encryption for secure storage.
-- [x] Test the signup process to ensure it works as expected.
+### Épopée: Gestion des comptes et des profils utilisateurs
 
-#### User Story: User Login
-As a user, I want to log in to my account so that I can access my profile and other features.
+#### Histoire utilisateur: Inscription utilisateur
+En tant qu'utilisateur, je veux créer un compte sur la plateforme pour pouvoir accéder aux fonctionnalités.
 
-**Sub-tasks:**
-- [x] Design the login form with fields for username/email and password.
-- [x] Implement backend authentication logic to verify user credentials.
-- [x] Create sessions to maintain user login state.
-- [x] Handle incorrect login attempts with appropriate error messages.
-- [x] Test the login process for functionality and security.
+**Sous-tâches:**
+- [x] Concevoir le formulaire d'inscription avec des champs pour le nom d'utilisateur, l'email, le mot de passe et le rôle.
+- [x] Implémenter la logique backend pour gérer la soumission et la validation des données utilisateur.
+- [x] Intégrer le chiffrement des mots de passe pour un stockage sécurisé.
+- [x] Tester le processus d'inscription pour s'assurer qu'il fonctionne comme prévu.
 
-#### User Story: User Logout
-As a user, I want to log out of my account to secure my session.
+#### Histoire utilisateur: Connexion utilisateur
+En tant qu'utilisateur, je veux me connecter à mon compte pour pouvoir accéder à mon profil et aux autres fonctionnalités.
 
-**Sub-tasks:**
-- [x] Add a logout option in the user interface.
-- [x] Implement backend logic to destroy user sessions upon logout.
-- [x] Redirect users to the homepage or login page after logout.
-- [x] Test the logout functionality to ensure sessions are properly terminated.
+**Sous-tâches:**
+- [x] Concevoir le formulaire de connexion avec des champs pour le nom d'utilisateur/email et le mot de passe.
+- [x] Implémenter la logique d'authentification backend pour vérifier les informations d'identification de l'utilisateur.
+- [x] Créer des sessions pour maintenir l'état de connexion de l'utilisateur.
+- [x] Gérer les tentatives de connexion incorrectes avec des messages d'erreur appropriés.
+- [x] Tester le processus de connexion pour la fonctionnalité et la sécurité.
 
-#### User Story: View Hello World Message
-As a user, I want to see a "Hello World" message with my name.
+#### Histoire utilisateur: Déconnexion utilisateur
+En tant qu'utilisateur, je veux me déconnecter de mon compte pour sécuriser ma session.
 
-**Sub-tasks:**
-- [x] Create a personalized message template.
-- [x] Retrieve the user's name from the session data.
-- [x] Display the "Hello World" message with the user's name on the page.
-- [x] Test the message display for different user scenarios.
+**Sous-tâches:**
+- [x] Ajouter une option de déconnexion dans l'interface utilisateur.
+- [x] Implémenter la logique backend pour détruire les sessions utilisateur lors de la déconnexion.
+- [x] Rediriger les utilisateurs vers la page d'accueil ou la page de connexion après la déconnexion.
+- [x] Tester la fonctionnalité de déconnexion pour s'assurer que les sessions sont correctement terminées.
 
-#### User Story: View Random Image
-As a user, I want to see a random image displayed on the page.
+#### Histoire utilisateur: Afficher le message "Hello World"
+En tant qu'utilisateur, je veux voir un message "Hello World" avec mon nom.
 
-**Sub-tasks:**
-- [x] Source a collection from external API of random images.
-- [x] Implement logic to randomly select an image from the collection.
-- [x] Display the selected image on the user interface.
-- [x] Test the random image feature to ensure different images are shown each time.
+**Sous-tâches:**
+- [x] Créer un modèle de message personnalisé.
+- [x] Récupérer le nom de l'utilisateur à partir des données de session.
+- [x] Afficher le message "Hello World" avec le nom de l'utilisateur sur la page.
+- [x] Tester l'affichage du message pour différents scénarios utilisateur.
 
-#### User Story: View User Details
-As a user, I want to view my profile details such as username and email address.
+#### Histoire utilisateur: Afficher une image aléatoire
+En tant qu'utilisateur, je veux voir une image aléatoire affichée sur la page.
 
-**Sub-tasks:**
-- [x] Create a user profile page template.
-- [x] Implement backend logic to retrieve user details from the database.
-- [x] Display the user's username and email address on the profile page.
-- [x] Test the profile page to ensure accurate data display.
+**Sous-tâches:**
+- [x] Sourcer une collection d'images aléatoires à partir d'une API externe.
+- [x] Implémenter la logique pour sélectionner aléatoirement une image de la collection.
+- [x] Afficher l'image sélectionnée dans l'interface utilisateur.
+- [x] Tester la fonctionnalité d'image aléatoire pour s'assurer que différentes images sont affichées à chaque fois.
 
-#### User Story: Admin Login
-As an admin, I want to log in to my account to access admin features like viewing all clients.
+#### Histoire utilisateur: Afficher les détails de l'utilisateur
+En tant qu'utilisateur, je veux voir les détails de mon profil tels que le nom d'utilisateur et l'adresse e-mail.
 
-**Sub-tasks:**
-- [x] Design the admin login form with fields for username/email and password.
-- [x] Implement backend authentication logic for admin credentials.
-- [x] Create admin sessions to maintain login state.
-- [x] Develop the admin dashboard to display client information.
-- [x] Test the admin login and dashboard functionalities for proper access control.
+**Sous-tâches:**
+- [x] Créer un modèle de page de profil utilisateur.
+- [x] Implémenter la logique backend pour récupérer les détails de l'utilisateur à partir de la base de données.
+- [x] Afficher le nom d'utilisateur et l'adresse e-mail de l'utilisateur sur la page de profil.
+- [x] Tester la page de profil pour s'assurer que les données sont affichées correctement.
 
+#### Histoire utilisateur: Connexion administrateur
+En tant qu'administrateur, je veux me connecter à mon compte pour accéder aux fonctionnalités d'administration telles que la visualisation de tous les clients.
 
-## Environment Variables
+**Sous-tâches:**
+- [x] Concevoir le formulaire de connexion administrateur avec des champs pour le nom d'utilisateur/email et le mot de passe.
+- [x] Implémenter la logique d'authentification backend pour les informations d'identification de l'administrateur.
+- [x] Créer des sessions administrateur pour maintenir l'état de connexion.
+- [x] Développer le tableau de bord administrateur pour afficher les informations des clients.
+- [x] Tester les fonctionnalités de connexion et de tableau de bord administrateur pour un contrôle d'accès approprié.
 
-Create a `.env` file in your project root with the following content:
+## Variables d'environnement
+
+Créez un fichier `.env` à la racine de votre projet avec le contenu suivant:
 
 ```
 DB_HOST=tch099-db
@@ -89,184 +94,183 @@ MYSQL_USER=user
 MYSQL_PASSWORD=password
 ```
 
-Follow the prompts provided by Vercel CLI to complete the deployment.
+## Utilisation de Docker
 
-## Docker Usage
+Pour exécuter l'application localement en utilisant Docker:
 
-To run the application locally using Docker:
+App: http://localhost:8001
+
+DB: mysql:host=localhost;port=3306;dbname=mydatabase
+
+Phpmyadmin: http://localhost:8060
+
+Nom d'utilisateur: admin
+Mot de passe: rootpassword
 
 ```
 docker-compose up -d --build
 ```
 
-
-## Prerequisites
-
-- Docker
-- Docker Compose
-- Azure Student Account
-
-
-## Project Structure
+## Initialisation de la base de données
 
 ```
-/
-
-├── api/                        # Folder containing API endpoint scripts
-└── utils/                      # Folder containing utility scripts
-    └── utils.php               # Utility functions for the application
-│   ├── hello-world.php         # API endpoint for Hello World messages
-│   ├── login.php               # API endpoint for user login
-│   ├── logout.php              # API endpoint for user logout
-│   ├── randomimage.php         # API endpoint to get a random image
-│   ├── signup.php              # API endpoint for user signup
-│   ├── user_details.php        # API endpoint to fetch user details
-│   └── clients.php             # API endpoint to fetch all clients
-
-├── db/                         # Folder containing SQL scripts for database setup
-│   ├── 1create.sql              # SQL script for creating database tables
-│   ├── 2contraines.sql          # SQL script for adding constraints
-│   ├── 3insert.sql              # SQL script for inserting initial data into database tables
-│   └── db.py                # Python script to create, alter and inserting initial data into database tables
-
-├── frontend/                   # Folder containing frontend assets and pages
-│   ├── css/                    # Folder containing CSS files
-│   │   └── styles.css          # Main stylesheet for the frontend
-│   ├── images/                 # Folder to store image assets
-│   ├── js/                     # Folder containing JavaScript files
-│   │   └── script.js           # Main JavaScript file for the frontend
-│   └── pages/                  # Folder containing HTML pages
-│       ├── hello-world.html    # HTML page for Hello World functionality
-│       ├── index.html          # HTML page for the homepage
-│       ├── admin.html          # HTML page that see all the clients
-│       ├── login.html          # HTML page for the login form
-│       ├── random-image.html   # HTML page to display a random image
-│       ├── signup.html         # HTML page for the signup form
-│       └── 404.html            # HTML page for errors 404 Not Found
-
-├── config.php                  # Main configuration file for the project
-├── router.php                  # Main router file for handling URL routing
-├── routes.php                  # File defining the routes for the application
-├── Dockerfile                  # Dockerfile to build the docker image
-├── docker-compose.yml          # Docker Compose configuration file for setting up the development environment
-├── nginx.conf                  # nginx configuration for Azure deployment
-```
-
-
-## Actors
-
-- **User:** A user who interacts with the application by logging in, signing up, and accessing various features.
-- **Admin:** A user with elevated privileges who can manage users and other aspects of the application.
-
-
-## Use Case
-
-![Use Case](https://www.plantuml.com/plantuml/dpng/PP51QiGm34NtFeMOVQzGPfZ242WKMjnj4Oam1bi9jaolNyUDgnJlelSYyhzopO99IWm6PraJs4pfUBmjqRCn9TECcU3ouHs3tIw06UpzQn_jflfrTJ1njtMQ-BzyAtAoTLBzwUcxVHfUID27t5_SnSuFh1iFOaee18z499vTt-YYy_EAm3loiaQO8ZhI3Vd5ZPuB4y4j1BW7Jon_cIgkz836jDXFptgIJlGC7MXp9KD5LKCNTMFgzhUg6nDUYPSImmy0)
-
-## Class Diagram
-
-![User Class DB](https://www.plantuml.com/plantuml/dpng/RSnD2W8n38RXVK-HlNY70GyYeGqOIDgQ7rs8TzTk1i5Pvdd3jtcWHQgKAkWE5s7guV0g02Tky42hDpJ0Z77cNetqsrTC9-kejBzavtlIIgJ8Sk0JtP_3zjLbDeH-xsg4GUsA0S5A7gXpUSxsx--oKM-fyW40)
-
-## Seed Database
-
-```
-cd db.py # make sure to have a .env in folder with correct variable to the database
+cd db.py
 python3 -m pip3 install mysql-connector-python python-dotenv
 python3 db.py
 ```
 
-## API Endpoints
+## Structure du projet
 
-### User Authentication
+```
+/
 
-#### Login
+├── api/                        # Dossier contenant les scripts de points de terminaison API
+└── utils/                      # Dossier contenant les scripts utilitaires
+    └── utils.php               # Fonctions utilitaires pour l'application
+│   ├── hello-world.php         # Point de terminaison API pour les messages Hello World
+│   ├── login.php               # Point de terminaison API pour la connexion utilisateur
+│   ├── logout.php              # Point de terminaison API pour la déconnexion utilisateur
+│   ├── randomimage.php         # Point de terminaison API pour obtenir une image aléatoire
+│   ├── signup.php              # Point de terminaison API pour l'inscription utilisateur
+│   ├── user_details.php        # Point de terminaison API pour récupérer les détails de l'utilisateur
+│   └── clients.php             # Point de terminaison API pour récupérer tous les clients
 
-**Endpoint:** `/api/login.php`
+├── db/                         # Dossier contenant les scripts SQL pour la configuration de la base de données
+│   ├── 1create.sql             # Script SQL pour créer les tables de la base de données
+│   ├── 2contraines.sql         # Script SQL pour ajouter des contraintes
+│   ├── 3insert.sql             # Script SQL pour insérer les données initiales dans les tables de la base de données
+│   └── db.py                   # Script Python pour créer, modifier et insérer les données initiales dans les tables de la base de données
 
-![Login Sequence Diagram](https://www.plantuml.com/plantuml/dpng/ROv1QyCm38Nl-XMYf_RGvPx3w49M60nQs7OR3CrH6uEZ65l-_xCNvYxGwzEdzxv3L0gQ9WTaT0xu4Ja0-9nPOps9ukOOPb6MuLEsRhvQUHXrShiDKiJZyzThYTOFJ-UNolhHBsWExx4zANrJvFnWPhdOw-sZxm2W-E3-iIwrUF8iU1E1lqkXwaYBvzFREpRaRLD5e9mhstVjKbCcjZleEzolAtwtAUd8aeL9UVZVi99QifYCuHYR2rcN0iE1PKYJ-m40)
+├── frontend/                   # Dossier contenant les actifs et les pages frontend
+│   ├── css/                    # Dossier contenant les fichiers CSS
+│   │   └── styles.css          # Feuille de style principale pour le frontend
+│   ├── images/                 # Dossier pour stocker les actifs d'image
+│   ├── js/                     # Dossier contenant les fichiers JavaScript
+│   │   └── script.js           # Fichier JavaScript principal pour le frontend
+│   └── pages/                  # Dossier contenant les pages HTML
+│       ├── hello-world.html    # Page HTML pour la fonctionnalité Hello World
+│       ├── index.html          # Page HTML pour la page d'accueil
+│       ├── admin.html          # Page HTML qui voit tous les clients
+│       ├── login.html          # Page HTML pour le formulaire de connexion
+│       ├── random-image.html   # Page HTML pour afficher une image aléatoire
+│       ├── signup.html         # Page HTML pour le formulaire d'inscription
+│       └── 404.html            # Page HTML pour les erreurs 404 Not Found
 
-**Method:** `POST`
+├── config.php                  # Fichier de configuration principal pour le projet
+├── router.php                  # Fichier de routage principal pour la gestion du routage URL
+├── routes.php                  # Fichier définissant les routes pour l'application
+├── Dockerfile                  # Dockerfile pour construire l'image docker
+├── docker-compose.yml          # Fichier de configuration Docker Compose pour configurer l'environnement de développement
+├── nginx.conf                  # Configuration nginx pour le déploiement Azure
+```
 
-**Request Body:**
+## Acteurs
+
+- **Utilisateur:** Un utilisateur qui interagit avec l'application en se connectant, s'inscrivant et accédant à diverses fonctionnalités.
+- **Administrateur:** Un utilisateur avec des privilèges élevés qui peut gérer les utilisateurs et d'autres aspects de l'application.
+
+## Cas d'utilisation
+
+![Cas d'utilisation](https://www.plantuml.com/plantuml/dpng/PP51QiGm34NtFeMOVQz
+
+GPfZ242WKMjnj4Oam1bi9jaolNyUDgnJlelSYyhzopO99IWm6PraJs4pfUBmjqRCn9TECcU3ouHs3tIw06UpzQn_jflfrTJ1njtMQ-BzyAtAoTLBzwUcxVHfUID27t5_SnSuFh1iFOaee18z499vTt-YYy_EAm3loiaQO8ZhI3Vd5ZPuB4y4j1BW7Jon_cIgkz836jDXFptgIJlGC7MXp9KD5LKCNTMFgzhUg6nDUYPSImmy0)
+
+## Diagramme de classe
+
+![Diagramme de classe](https://www.plantuml.com/plantuml/dpng/RSnD2W8n38RXVK-HlNY70GyYeGqOIDgQ7rs8TzTk1i5Pvdd3jtcWHQgKAkWE5s7guV0g02Tky42hDpJ0Z77cNetqsrTC9-kejBzavtlIIgJ8Sk0JtP_3zjLbDeH-xsg4GUsA0S5A7gXpUSxsx--oKM-fyW40)
+
+## Points de terminaison API
+
+### Authentification utilisateur
+
+#### Connexion
+
+**Point de terminaison:** `/api/login.php`
+
+![Diagramme de séquence de connexion](https://www.plantuml.com/plantuml/dpng/ROv1QyCm38Nl-XMYf_RGvPx3w49M60nQs7OR3CrH6uEZ65l-_xCNvYxGwzEdzxv3L0gQ9WTaT0xu4Ja0-9nPOps9ukOOPb6MuLEsRhvQUHXrShiDKiJZyzThYTOFJ-UNolhHBsWExx4zANrJvFnWPhdOw-sZxm2W-E3-iIwrUF8iU1E1lqkXwaYBvzFREpRaRLD5e9mhstVjKbCcjZleEzolAtwtAUd8aeL9UVZVi99QifYCuHYR2rcN0iE1PKYJ-m40)
+
+**Méthode:** `POST`
+
+**Corps de la requête:**
 
 ```json
 {
-  "username": "example",
-  "password": "password"
+  "username": "exemple",
+  "password": "motdepasse"
 }
 ```
 
-**Response:**
+**Réponse:**
 
 ```json
 {
   "status": "success",
-  "message": "Login successful"
+  "message": "Connexion réussie"
 }
 ```
 
-#### Signup
+#### Inscription
 
-![Signup Sequence Diagram](https://www.plantuml.com/plantuml/dpng/RP2_JiD03CPtFuNLgHrAzWoeHA4IKoiA6n8o5pSzANLEjlF-v8hK8uZry-_x8-_CINsw3a31HyLtOmL8inP3J2IEgxsEuYpTXwmjzZAbXujVXyqAoN3__7cwQKlBq_6bqEcIVk1P_PTkoUcBZ6TB6EKS-s9f6u0y2RUFfQl6GsB1NsFWVijWwQdnU3YzOKKfLcKD523ZRLEZSX_DMNFNUWDjWzi_GVbonxXRP2p7lTuW9O-Ze4qXi5brfZXCoW0xbcv-zpS0)
+![Diagramme de séquence d'inscription](https://www.plantuml.com/plantuml/dpng/RP2_JiD03CPtFuNLgHrAzWoeHA4IKoiA6n8o5pSzANLEjlF-v8hK8uZry-_x8-_CINsw3a31HyLtOmL8inP3J2IEgxsEuYpTXwmjzZAbXujVXyqAoN3__7cwQKlBq_6bqEcIVk1P_PTkoUcBZ6TB6EKS-s9f6u0y2RUFfQl6GsB1NsFWVijWwQdnU3YzOKKfLcKD523ZRLEZSX_DMNFNUWDjWzi_GVbonxXRP2p7lTuW9O-Ze4qXi5brfZXCoW0xbcv-zpS0)
 
-**Endpoint:** `/api/signup.php`
+**Point de terminaison:** `/api/signup.php`
 
-**Method:** `POST`
+**Méthode:** `POST`
 
-**Request Body:**
+**Corps de la requête:**
 
 ```json
 {
-  "username": "example",
-  "password": "password",
-  "email": "example@example.com",
-  "role": "user"
+  "username": "exemple",
+  "password": "motdepasse",
+  "email": "exemple@exemple.com",
+  "role": "utilisateur"
 }
 ```
 
-**Response:**
-
-```json
-{
-  "status": "success",
-  "message": "Signup successful"
-}
-```
-
-#### Logout
-
-![Logout](https://www.plantuml.com/plantuml/dpng/NP0nQyCm48Nt-nL7fcH8idiegQi60eK6scw1S9NLH5Gv2UaC_VcrRBUEl3vzzxs7TaaeIdjpG5fyn8za8a3eCgjj81PSxADdCToSU6cvCJ-RgzpSQe6KSFzyFkIeF7Wy7awyTVxYMzc4Q-ZHBZo_z549AnBwf6Gwk_RyPI_vOh2h6W3o85m__5TL-EIi_iRHzHTdPAgeyFZwzevR2lPk1qn0nbLTuV2OEvOhK3MkPvgHJgtM9gL2K6oQSJl3JVxJNm00)
-
-**Endpoint:** `/api/logout.php`
-
-**Method:** `POST`
-
-**Response:**
+**Réponse:**
 
 ```json
 {
   "status": "success",
-  "message": "Logout successful"
+  "message": "Inscription réussie"
 }
 ```
 
-#### User Details
+#### Déconnexion
 
-![User Details](https://www.plantuml.com/plantuml/dpng/ROu_Ry8m4CNt-nGd9XY0FKD58qF5r0xjXXHTuojOSYwMVPRQRzyO-eSGrdVtUx-tIKfHS-U1MkqZlYME0126qBKka2ZETh4NPR47cJkn_BawQUSNCwI4ksspBz4OU7pP7sIT4yV6ifBpQHLEuGmCfwOup2KVSuQKtYdn86fx-N37Wbr4fWOe72uV_gGLFWSM_Dy4lvVoTMEgy6dxYciARZ8CRbuBRUeAZwnNwNm1fiRblURpi9_2QTbeiN4fUFh2V8t0XiNcpdy3)
+![Déconnexion](https://www.plantuml.com/plantuml/dpng/NP0nQyCm48Nt-nL7fcH8idiegQi60eK6scw1S9NLH5Gv2UaC_VcrRBUEl3vzzxs7TaaeIdjpG5fyn8za8a3eCgjj81PSxADdCToSU6cvCJ-RgzpSQe6KSFzyFkIeF7Wy7awyTVxYMzc4Q-ZHBZo_z549AnBwf6Gwk_RyPI_vOh2h6W3o85m__5TL-EIi_iRHzHTdPAgeyFZwzevR2lPk1qn0nbLTuV2OEvOhK3MkPvgHJgtM9gL2K6oQSJl3JVxJNm00)
 
-**Endpoint:** `/api/user_details.php`
+**Point de terminaison:** `/api/logout.php`
 
-**Method:** `GET`
+**Méthode:** `POST`
 
-**Response:**
+**Réponse:**
+
+```json
+{
+  "status": "success",
+  "message": "Déconnexion réussie"
+}
+```
+
+#### Détails de l'utilisateur
+
+![Détails de l'utilisateur](https://www.plantuml.com/plantuml/dpng/ROu_Ry8m4CNt-nGd9XY0FKD58qF5r0xjXXHTuojOSYwMVPRQRzyO-eSGrdVtUx-tIKfHS-U1MkqZlYME0126qBKka2ZETh4NPR47cJkn_BawQUSNCwI4ksspBz4OU7pP7sIT4yV6ifBpQHLEuGmCfwOup2KVSuQKtYdn86fx-N37Wbr4fWOe72uV_gGLFWSM_Dy4lvVoTMEgy6dxYciARZ8CRbuBRUeAZwnNwNm1fiRblURpi9_2QTbeiN4fUFh2V8t0XiNcpdy3)
+
+**Point de terminaison:** `/api/user_details.php`
+
+**Méthode:** `GET`
+
+**Réponse:**
 
 ```json
 {
   "status": "success",
   "data": {
-    "username": "example",
-    "email": "example@example.com",
-    "role": "user"
+    "username": "exemple",
+    "email": "exemple@exemple.com",
+    "role": "utilisateur"
   }
 }
 ```
@@ -277,82 +281,82 @@ python3 db.py
 
 ### Hello World
 
-#### Get Greeting
+#### Obtenir le message de salutation
 
 ![Hello World](https://www.plantuml.com/plantuml/dpng/RO_DJiCm48JlVefLnI4vXDnpG2KA1IIaLlo8IoMq98jZuQmjUoDUdxe5L9TUFVFjDrv6mI3pP1NsuWAyH0fAUGnYUkEH1HQhu5Y8XoqN8rdhgYyNx70vocJB1M24rStRNGfox7fpl-NwcF2Zt_TtoG5uJSyvrQ7WEqRQoNh77qOdwg3fMgNIFAYk_fGDh3qndEvIltdgvhe6DkkdPwZHc-DnzOL5rZEfl9tuhcsW7wd_JF87fmqNfUfQgCxStk-pgGDHKEPuUkyCeuafeD1j81B3kYZ_GTcF7qdcmA1_wZ1HZAX9gINnC4_s6m00)
 
-**Endpoint:** `/api/hello-world/$langue`
+**Point de terminaison:** `/api/hello-world/$langue`
 
-**Method:** `GET` or `POST`
+**Méthode:** `GET` ou `POST`
 
-**Request Query Parameters:**
+**Paramètres de requête:**
 
-- `nom` (optional)
-- `prenom` (optional)
+- `nom` (optionnel)
+- `prenom` (optionnel)
 
-**Response:**
+**Réponse:**
 
 ```json
 {
   "nom": "Doe",
   "prenom": "John",
-  "langue": "en",
-  "message": "Hello World John Doe!"
+  "langue": "fr",
+  "message": "Bonjour le monde John Doe!"
 }
 ```
 
-### Random Image
+### Image aléatoire
 
-![Random Image](https://www.plantuml.com/plantuml/dpng/RP31IiGm48RlynJ3ddOFwzxt85NQIa5GYhqLP6nZ6sWc8Pc-lsaLDUqUP-R_-7uc2q9UPZC1TM8zDa5v01TtkjEEMF1GUikYk6_vw8bxQyxQqA3kHZ7JwO0Ki2pUw_MIWW-lLSkNX76ZMubu-a6gPPzoEGbzK51Hs5d-rCE2VPloHu2b8fxl_wnNV76ASLSEVXCnlbLUyQbummivlMi8c-XDUb3oRsxgv-DfpwKjQoMpPrmz60d8ubVZwxy0)
+![Image aléatoire](https://www.plantuml.com/plantuml/dpng/RP31IiGm48RlynJ3ddOFwzxt85NQIa5GYhqLP6nZ6sWc8Pc-lsaLDUqUP-R_-7uc2q9UPZC1TM8zDa5v01TtkjEEMF1GUikYk6_vw8bxQyxQqA3kHZ7
 
-**Endpoint:** `/api/random-image`
+JwO0Ki2pUw_MIWW-lLSkNX76ZMubu-a6gPPzoEGbzK51Hs5d-rCE2VPloHu2b8fxl_wnNV76ASLSEVXCnlbLUyQbummivlMi8c-XDUb3oRsxgv-DfpwKjQoMpPrmz60d8ubVZwxy0)
 
-**Method:** `GET`
+**Point de terminaison:** `/api/random-image`
 
-**Response:**
+**Méthode:** `GET`
 
-A random image URL.
+**Réponse:**
 
-## Deployment on Azure with Portal
+Une URL d'image aléatoire.
 
-### Deployment diagram
+## Déploiement sur Azure avec le portail
 
-![Deployement diagram](https://www.plantuml.com/plantuml/dpng/XP5FImCn44Vlyob-vk9fmMjxa2vhiOTQjksg1_6GPaSCngJcZwAotzsD4A5GwTp2UxnCo2n4wMDwDNJMyvEsZCsywUhLzN8EPMG8H595vt4Rs1Cfur8FKNybpsZoGU2RC8vrFKFSwJ4c3LOSFvn_AV2Ft_CEM_Rlx0igyz0kMcHSx_T6Ancriu_560uhLpBAdGpyN-hcSxjUebXJHFLyCPbKuTS-Z0uq49sZSTQoodS6oYz5LLqUNmbJY4NNjTZmM-8GWw3ZNYwSs2It2iCwiTSyvcPi-_53VW00)
+### Diagramme de déploiement
 
+![Diagramme de déploiement](https://www.plantuml.com/plantuml/dpng/XP5FImCn44Vlyob-vk9fmMjxa2vhiOTQjksg1_6GPaSCngJcZwAotzsD4A5GwTp2UxnCo2n4wMDwDNJMyvEsZCsywUhLzN8EPMG8H595vt4Rs1Cfur8FKNybpsZoGU2RC8vrFKFSwJ4c3LOSFvn_AV2Ft_CEM_Rlx0igyz0kMcHSx_T6Ancriu_560uhLpBAdGpyN-hcSxjUebXJHFLyCPbKuTS-Z0uq49sZSTQoodS6oYz5LLqUNmbJY4NNjTZmM-8GWw3ZNYwSs2It2iCwiTSyvcPi-_53VW00)
 
-- Source 1: https://learn.microsoft.com/en-us/azure/app-service/quickstart-php?tabs=cli&pivots=platform-linux
+- Source 1: [https://learn.microsoft.com/fr-fr/azure/app-service/quickstart-php?tabs=cli&pivots=platform-linux](https://learn.microsoft.com/fr-fr/azure/app-service/quickstart-php?tabs=cli&pivots=platform-linux)
+- Source 2: [https://learn.microsoft.com/fr-fr/azure/app-service/configure-language-php?pivots=platform-linux](https://learn.microsoft.com/fr-fr/azure/app-service/configure-language-php?pivots=platform-linux)
 
-- Source 2: https://learn.microsoft.com/en-us/azure/app-service/configure-language-php?pivots=platform-linux
+### 1. Créer un service d'application web et une base de données
 
+![Créer un service d'application web et une base de données](https://github.com/user-attachments/assets/b2eea129-7197-4f87-aab4-40978f5cd3ad)
 
-### 1. App service create webapp and database
+### 2. Choisir MySQL et PHP
 
-![Create Web App and Database](https://github.com/user-attachments/assets/b2eea129-7197-4f87-aab4-40978f5cd3ad)
+![Choisir MySQL et PHP](https://github.com/user-attachments/assets/cacfc5b4-a09d-4ca2-a8b4-e83ab1e005ae)
 
-### 2. Chose MySQL and PHP
+### 3. Centre de déploiement pour créer la CI/CD
 
-![Create Web App and Database Settings](https://github.com/user-attachments/assets/cacfc5b4-a09d-4ca2-a8b4-e83ab1e005ae)
+![Centre de déploiement](https://github.com/user-attachments/assets/2ac1d270-4c44-4d87-b1b1-95ff3e778379)
 
-### 3. Deployment Center to make CD
-![Deployement Center](https://github.com/user-attachments/assets/2ac1d270-4c44-4d87-b1b1-95ff3e778379)
-
-### 4. Add Startup Command
+### 4. Ajouter une commande de démarrage
 ```bash
-# put this line into the startup command
+# mettre cette ligne dans la commande de démarrage
 cp /home/site/wwwroot/nginx.conf /etc/nginx/sites-available/default && service nginx reload
 ```
 
-![Startup Command](https://github.com/user-attachments/assets/3108acb5-5dc6-48fe-98bd-fab10d182deb)
+![Commande de démarrage](https://github.com/user-attachments/assets/3108acb5-5dc6-48fe-98bd-fab10d182deb)
 
-### 5. Check Environement Variable
+### 5. Vérifier les variables d'environnement
 
-![Environement Variable](https://github.com/user-attachments/assets/d2fe5651-4a29-490c-a1e3-c71401e411f5)
+![Variables d'environnement](https://github.com/user-attachments/assets/d2fe5651-4a29-490c-a1e3-c71401e411f5)
 
-### 6. SSH into the container
+### 6. SSH dans le conteneur
 
 ![SSH](https://github.com/user-attachments/assets/eb93150a-519c-4cc9-973d-f6bff36b8abe)
 
-### 6. Create .ENV file with the right variable based on azure env
+### 7. Créer un fichier .ENV avec les bonnes variables en fonction de l'environnement Azure
 
 ```
 DB_HOST=tch099-db

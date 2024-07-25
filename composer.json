@@ -1,0 +1,10 @@
+{
+    "name": "vendor/package",
+    "description": "A short description of the package",
+    "type": "project",
+    "require": {
+        "php": "^8.1",
+        "ext-pdo_mysql": "*",
+        "vlucas/phpdotenv": "^5.3"
+    }
+}

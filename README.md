@@ -326,6 +326,7 @@ Une URL d'image aléatoire.
 
 - Source 1: [https://learn.microsoft.com/fr-fr/azure/app-service/quickstart-php?tabs=cli&pivots=platform-linux](https://learn.microsoft.com/fr-fr/azure/app-service/quickstart-php?tabs=cli&pivots=platform-linux)
 - Source 2: [https://learn.microsoft.com/fr-fr/azure/app-service/configure-language-php?pivots=platform-linux](https://learn.microsoft.com/fr-fr/azure/app-service/configure-language-php?pivots=platform-linux)
+Source 3: [https://learn.microsoft.com/en-us/azure/app-service/tutorial-php-mysql-app#2---set-up-database-connectivity](https://learn.microsoft.com/en-us/azure/app-service/tutorial-php-mysql-app#2---set-up-database-connectivity) 
 
 ### 1. Créer un service d'application web et une base de données
 

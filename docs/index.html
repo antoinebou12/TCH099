@@ -517,23 +517,24 @@ buildConfigField("String", "USER_DETAILS_API_URL", "\"https://10.0.2.2:8001/api/
     <h3>Fichiers de configuration</h3>
     <h4>AndroidManifest.xml</h4>
     <h5>Permission</h5>
-    <pre><code><uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.POST_NOTIFICATIONS" /></code></pre>
+    <pre><code>&lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+&lt;uses-permission android:name="android.permission.POST_NOTIFICATIONS" /&gt;</code></pre>
+    
     <h5>Activity</h5>
-    <pre><code><activity
+    <pre><code>&lt;activity
     android:name=".MainActivity"
-    android:exported="true">
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-</activity>
-<activity android:name=".LoginActivity" android:exported="true">
-</activity>
-<activity android:name=".SignupActivity" android:exported="true">
-</activity>
-<activity android:name=".UserDetailsActivity" android:exported="true">
-</activity></code></pre>
+    android:exported="true"&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name="android.intent.action.MAIN" /&gt;
+        &lt;category android:name="android.intent.category.LAUNCHER" /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+&lt;activity android:name=".LoginActivity" android:exported="true"&gt;
+&lt;/activity&gt;
+&lt;activity android:name=".SignupActivity" android:exported="true"&gt;
+&lt;/activity&gt;
+&lt;activity android:name=".UserDetailsActivity" android:exported="true"&gt;
+&lt;/activity&gt;</code></pre>
     <h3>Astuces pour le développement Android</h3>
     <ul>
         <li>Utilisez <a href="https://m3.material.io/">Material Design 3</a> pour des interfaces utilisateur modernes et réactives.</li>

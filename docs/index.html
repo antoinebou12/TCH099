@@ -65,134 +65,124 @@
 <h1>Application Web Démo TCH099</h1>
 <p>Ce dépôt sera utilisé comme application web PHP démo à déployer sur le cloud Azure</p>
 
-<button type="button" class="collapsible">Fonctionnalités</button>
+<!-- PlanProject -->
+<button type="button" class="collapsible">PlanProject</button>
 <div class="content">
-    <ul>
-        <li><strong>Points de terminaison API :</strong> Créez des points de terminaison API personnalisés pour votre application.</li>
-        <li><strong>Authentification utilisateur :</strong> Implémentez l'authentification utilisateur avec les fonctionnalités de connexion, inscription et déconnexion.</li>
-        <li><strong>Intégration de base de données :</strong> Utilisez la base de données MySQL pour stocker les données des utilisateurs et autres informations.</li>
-        <li><strong>Pages Frontend :</strong> Créez des pages frontend avec HTML, CSS et JavaScript.</li>
-        <li><strong>Support Docker :</strong> Exécutez l'application localement en utilisant Docker Compose.</li>
-    </ul>
+    <h3>Épopée : Gestion des comptes et des profils utilisateurs</h3>
+
+    <button type="button" class="collapsible">Histoire utilisateur : Inscription utilisateur</button>
+    <div class="content">
+        <p>En tant qu'utilisateur, je veux créer un compte sur la plateforme pour pouvoir accéder aux fonctionnalités.</p>
+        <p><strong>Sous-tâches :</strong></p>
+        <ul>
+            <li>Concevoir le formulaire d'inscription avec des champs pour le nom d'utilisateur, l'email, le mot de passe et le rôle.</li>
+            <li>Implémenter la logique backend pour gérer la soumission et la validation des données utilisateur.</li>
+            <li>Intégrer le chiffrement des mots de passe pour un stockage sécurisé.</li>
+            <li>Tester le processus d'inscription pour s'assurer qu'il fonctionne comme prévu.</li>
+        </ul>
+    </div>
+
+    <button type="button" class="collapsible">Histoire utilisateur : Connexion utilisateur</button>
+    <div class="content">
+        <p>En tant qu'utilisateur, je veux me connecter à mon compte pour pouvoir accéder à mon profil et aux autres fonctionnalités.</p>
+        <p><strong>Sous-tâches :</strong></p>
+        <ul>
+            <li>Concevoir le formulaire de connexion avec des champs pour le nom d'utilisateur/email et le mot de passe.</li>
+            <li>Implémenter la logique d'authentification backend pour vérifier les informations d'identification de l'utilisateur.</li>
+            <li>Créer des sessions pour maintenir l'état de connexion de l'utilisateur.</li>
+            <li>Gérer les tentatives de connexion incorrectes avec des messages d'erreur appropriés.</li>
+            <li>Tester le processus de connexion pour la fonctionnalité et la sécurité.</li>
+        </ul>
+    </div>
+
+    <button type="button" class="collapsible">Histoire utilisateur : Déconnexion utilisateur</button>
+    <div class="content">
+        <p>En tant qu'utilisateur, je veux me déconnecter de mon compte pour sécuriser ma session.</p>
+        <p><strong>Sous-tâches :</strong></p>
+        <ul>
+            <li>Ajouter une option de déconnexion dans l'interface utilisateur.</li>
+            <li>Implémenter la logique backend pour détruire les sessions utilisateur lors de la déconnexion.</li>
+            <li>Rediriger les utilisateurs vers la page d'accueil ou la page de connexion après la déconnexion.</li>
+            <li>Tester la fonctionnalité de déconnexion pour s'assurer que les sessions sont correctement terminées.</li>
+        </ul>
+    </div>
+
+    <button type="button" class="collapsible">Histoire utilisateur : Afficher le message "Hello World"</button>
+    <div class="content">
+        <p>En tant qu'utilisateur, je veux voir un message "Hello World" avec mon nom.</p>
+        <p><strong>Sous-tâches :</strong></p>
+        <ul>
+            <li>Créer un modèle de message personnalisé.</li>
+            <li>Récupérer le nom de l'utilisateur à partir des données de session.</li>
+            <li>Afficher le message "Hello World" avec le nom de l'utilisateur sur la page.</li>
+            <li>Tester l'affichage du message pour différents scénarios utilisateur.</li>
+        </ul>
+    </div>
+
+    <button type="button" class="collapsible">Histoire utilisateur : Afficher une image aléatoire</button>
+    <div class="content">
+        <p>En tant qu'utilisateur, je veux voir une image aléatoire affichée sur la page.</p>
+        <p><strong>Sous-tâches :</strong></p>
+        <ul>
+            <li>Sourcer une collection d'images aléatoires à partir d'une API externe.</li>
+            <li>Implémenter la logique pour sélectionner aléatoirement une image de la collection.</li>
+            <li>Afficher l'image sélectionnée dans l'interface utilisateur.</li>
+            <li>Tester la fonctionnalité d'image aléatoire pour s'assurer que différentes images sont affichées à chaque fois.</li>
+        </ul>
+    </div>
+
+    <button type="button" class="collapsible">Histoire utilisateur : Afficher les détails de l'utilisateur</button>
+    <div class="content">
+        <p>En tant qu'utilisateur, je veux voir les détails de mon profil tels que le nom d'utilisateur et l'adresse e-mail.</p>
+        <p><strong>Sous-tâches :</strong></p>
+        <ul>
+            <li>Créer un modèle de page de profil utilisateur.</li>
+            <li>Implémenter la logique backend pour récupérer les détails de l'utilisateur à partir de la base de données.</li>
+            <li>Afficher le nom d'utilisateur et l'adresse e-mail de l'utilisateur sur la page de profil.</li>
+            <li>Tester la page de profil pour s'assurer que les données sont affichées correctement.</li>
+        </ul>
+    </div>
+
+    <button type="button" class="collapsible">Histoire utilisateur : Connexion administrateur</button>
+    <div class="content">
+        <p>En tant qu'administrateur, je veux me connecter à mon compte pour accéder aux fonctionnalités d'administration telles que la visualisation de tous les clients.</p>
+        <p><strong>Sous-tâches :</strong></p>
+        <ul>
+            <li>Concevoir le formulaire de connexion administrateur avec des champs pour le nom d'utilisateur/email et le mot de passe.</li>
+            <li>Implémenter la logique d'authentification backend pour les informations d'identification de l'administrateur.</li>
+            <li>Créer des sessions administrateur pour maintenir l'état de connexion.</li>
+            <li>Développer le tableau de bord administrateur pour afficher les informations des clients.</li>
+            <li>Tester les fonctionnalités de connexion et de tableau de bord administrateur pour un contrôle d'accès approprié.</li>
+        </ul>
+    </div>
 </div>
 
-<h3>Épopée : Gestion des comptes et des profils utilisateurs</h3>
-
-<button type="button" class="collapsible">Histoire utilisateur : Inscription utilisateur</button>
+<!-- DB -->
+<button type="button" class="collapsible">DB</button>
 <div class="content">
-    <p>En tant qu'utilisateur, je veux créer un compte sur la plateforme pour pouvoir accéder aux fonctionnalités.</p>
-    <p><strong>Sous-tâches :</strong></p>
-    <ul>
-        <li>Concevoir le formulaire d'inscription avec des champs pour le nom d'utilisateur, l'email, le mot de passe et le rôle.</li>
-        <li>Implémenter la logique backend pour gérer la soumission et la validation des données utilisateur.</li>
-        <li>Intégrer le chiffrement des mots de passe pour un stockage sécurisé.</li>
-        <li>Tester le processus d'inscription pour s'assurer qu'il fonctionne comme prévu.</li>
-    </ul>
-</div>
-
-<button type="button" class="collapsible">Histoire utilisateur : Connexion utilisateur</button>
-<div class="content">
-    <p>En tant qu'utilisateur, je veux me connecter à mon compte pour pouvoir accéder à mon profil et aux autres fonctionnalités.</p>
-    <p><strong>Sous-tâches :</strong></p>
-    <ul>
-        <li>Concevoir le formulaire de connexion avec des champs pour le nom d'utilisateur/email et le mot de passe.</li>
-        <li>Implémenter la logique d'authentification backend pour vérifier les informations d'identification de l'utilisateur.</li>
-        <li>Créer des sessions pour maintenir l'état de connexion de l'utilisateur.</li>
-        <li>Gérer les tentatives de connexion incorrectes avec des messages d'erreur appropriés.</li>
-        <li>Tester le processus de connexion pour la fonctionnalité et la sécurité.</li>
-    </ul>
-</div>
-
-<button type="button" class="collapsible">Histoire utilisateur : Déconnexion utilisateur</button>
-<div class="content">
-    <p>En tant qu'utilisateur, je veux me déconnecter de mon compte pour sécuriser ma session.</p>
-    <p><strong>Sous-tâches :</strong></p>
-    <ul>
-        <li>Ajouter une option de déconnexion dans l'interface utilisateur.</li>
-        <li>Implémenter la logique backend pour détruire les sessions utilisateur lors de la déconnexion.</li>
-        <li>Rediriger les utilisateurs vers la page d'accueil ou la page de connexion après la déconnexion.</li>
-        <li>Tester la fonctionnalité de déconnexion pour s'assurer que les sessions sont correctement terminées.</li>
-    </ul>
-</div>
-
-<button type="button" class="collapsible">Histoire utilisateur : Afficher le message "Hello World"</button>
-<div class="content">
-    <p>En tant qu'utilisateur, je veux voir un message "Hello World" avec mon nom.</p>
-    <p><strong>Sous-tâches :</strong></p>
-    <ul>
-        <li>Créer un modèle de message personnalisé.</li>
-        <li>Récupérer le nom de l'utilisateur à partir des données de session.</li>
-        <li>Afficher le message "Hello World" avec le nom de l'utilisateur sur la page.</li>
-        <li>Tester l'affichage du message pour différents scénarios utilisateur.</li>
-    </ul>
-</div>
-
-<button type="button" class="collapsible">Histoire utilisateur : Afficher une image aléatoire</button>
-<div class="content">
-    <p>En tant qu'utilisateur, je veux voir une image aléatoire affichée sur la page.</p>
-    <p><strong>Sous-tâches :</strong></p>
-    <ul>
-        <li>Sourcer une collection d'images aléatoires à partir d'une API externe.</li>
-        <li>Implémenter la logique pour sélectionner aléatoirement une image de la collection.</li>
-        <li>Afficher l'image sélectionnée dans l'interface utilisateur.</li>
-        <li>Tester la fonctionnalité d'image aléatoire pour s'assurer que différentes images sont affichées à chaque fois.</li>
-    </ul>
-</div>
-
-<button type="button" class="collapsible">Histoire utilisateur : Afficher les détails de l'utilisateur</button>
-<div class="content">
-    <p>En tant qu'utilisateur, je veux voir les détails de mon profil tels que le nom d'utilisateur et l'adresse e-mail.</p>
-    <p><strong>Sous-tâches :</strong></p>
-    <ul>
-        <li>Créer un modèle de page de profil utilisateur.</li>
-        <li>Implémenter la logique backend pour récupérer les détails de l'utilisateur à partir de la base de données.</li>
-        <li>Afficher le nom d'utilisateur et l'adresse e-mail de l'utilisateur sur la page de profil.</li>
-        <li>Tester la page de profil pour s'assurer que les données sont affichées correctement.</li>
-    </ul>
-</div>
-
-<button type="button" class="collapsible">Histoire utilisateur : Connexion administrateur</button>
-<div class="content">
-    <p>En tant qu'administrateur, je veux me connecter à mon compte pour accéder aux fonctionnalités d'administration telles que la visualisation de tous les clients.</p>
-    <p><strong>Sous-tâches :</strong></p>
-    <ul>
-        <li>Concevoir le formulaire de connexion administrateur avec des champs pour le nom d'utilisateur/email et le mot de passe.</li>
-        <li>Implémenter la logique d'authentification backend pour les informations d'identification de l'administrateur.</li>
-        <li>Créer des sessions administrateur pour maintenir l'état de connexion.</li>
-        <li>Développer le tableau de bord administrateur pour afficher les informations des clients.</li>
-        <li>Tester les fonctionnalités de connexion et de tableau de bord administrateur pour un contrôle d'accès approprié.</li>
-    </ul>
-</div>
-
-<button type="button" class="collapsible">Variables d'environnement</button>
-<div class="content">
-    <p>Créez un fichier <code>.env</code> à la racine de votre projet avec le contenu suivant :</p>
-    <pre><code>DB_HOST=tch099-db
+    <button type="button" class="collapsible">Variables d'environnement</button>
+    <div class="content">
+        <p>Créez un fichier <code>.env</code> à la racine de votre projet avec le contenu suivant :</p>
+        <pre><code>DB_HOST=tch099-db
 MYSQL_ROOT_PASSWORD=rootpassword
 MYSQL_DATABASE=mydatabase
 MYSQL_USER=user
 MYSQL_PASSWORD=password
 </code></pre>
-</div>
+    </div>
 
-<button type="button" class="collapsible">Utilisation de Docker</button>
-<div class="content">
-    <p>Pour exécuter l'application localement en utilisant Docker :</p>
-    <pre><code>docker-compose up -d --build</code></pre>
-</div>
+    <button type="button" class="collapsible">Initialiser la base de données</button>
+    <div class="content">
+        <p>Exécutez les commandes suivantes pour initialiser la base de données :</p>
+        <pre><code>cd db.py # assurez-vous d'avoir un fichier .env dans le dossier avec les bonnes variables pour la base de données
+python3 -m pip install mysql-connector-python python-dotenv
+python3 db.py
+</code></pre>
+    </div>
 
-<button type="button" class="collapsible">Prérequis</button>
-<div class="content">
-    <ul>
-        <li>Docker</li>
-        <li>Docker Compose</li>
-        <li>Compte Azure Student</li>
-    </ul>
-</div>
-
-<button type="button" class="collapsible">Structure du projet</button>
-<div class="content">
-    <pre><code>/
+    <button type="button" class="collapsible">Structure du projet</button>
+    <div class="content">
+        <pre><code>/
 ├── api/                        # Dossier contenant les scripts de points de terminaison API
 └── utils/                      # Dossier contenant les scripts utilitaires
     └── utils.php               # Fonctions utilitaires pour l'application
@@ -232,38 +222,12 @@ MYSQL_PASSWORD=password
 ├── docker-compose.yml          # Fichier de configuration Docker Compose pour configurer l'environnement de développement
 ├── nginx.conf                  # Configuration nginx pour le déploiement Azure
 </code></pre>
+    </div>
 </div>
 
-<button type="button" class="collapsible">Acteurs</button>
+<!-- API -->
+<button type="button" class="collapsible">API</button>
 <div class="content">
-    <ul>
-        <li><strong>Utilisateur :</strong> Un utilisateur qui interagit avec l'application en se connectant, s'inscrivant et accédant à diverses fonctionnalités.</li>
-        <li><strong>Administrateur :</strong> Un utilisateur avec des privilèges élevés qui peut gérer les utilisateurs et d'autres aspects de l'application.</li>
-    </ul>
-</div>
-
-<button type="button" class="collapsible">Cas d'utilisation</button>
-<div class="content">
-    <p><img src="https://www.plantuml.com/plantuml/dpng/PP51QiGm34NtFeMOVQzGPfZ242WKMjnj4Oam1bi9jaolNyUDgnJlelSYyhzopO99IWm6PraJs4pfUBmjqRCn9TECcU3ouHs3tIw06UpzQn_jflfrTJ1njtMQ-BzyAtAoTLBzwUcxVHfUID27t5_SnSuFh1iFOaee18z499vTt-YYy_EAm3loiaQO8ZhI3Vd5ZPuB4y4j1BW7Jon_cIgkz836jDXFptgIJlGC7MXp9KD5LKCNTMFgzhUg6nDUYPSImmy0" alt="Cas d'utilisation"></p>
-</div>
-
-<button type="button" class="collapsible">Diagramme de classe</button>
-<div class="content">
-    <p><img src="https://www.plantuml.com/plantuml/dpng/RSnD2W8n38RXVK-HlNY70GyYeGqOIDgQ7rs8TzTk1i5Pvdd3jtcWHQgKAkWE5s7guV0g02Tky42hDpJ0Z77cNetqsrTC9-kejBzavtlIIgJ8Sk0JtP_3zjLbDeH-xsg4GUsA0S5A7gXpUSxsx--oKM-fyW40" alt="Diagramme de classe"></p>
-</div>
-
-<button type="button" class="collapsible">Initialiser la base de données</button>
-<div class="content">
-    <p>Exécutez les commandes suivantes pour initialiser la base de données :</p>
-    <pre><code>cd db.py # assurez-vous d'avoir un fichier .env dans le dossier avec les bonnes variables pour la base de données
-python3 -m pip install mysql-connector-python python-dotenv
-python3 db.py
-</code></pre>
-</div>
-
-<button type="button" class="collapsible">Points de terminaison API</button>
-<div class="content">
-
     <h3>Authentification utilisateur</h3>
 
     <button type="button" class="collapsible">Connexion</button>
@@ -371,7 +335,82 @@ python3 db.py
     </div>
 </div>
 
-<button type="button" class="collapsible">Déploiement sur Azure avec le portail</button>
+<!-- Frontend -->
+<button type="button" class="collapsible">Frontend</button>
+<div class="content">
+    <p>Créez des pages frontend avec HTML, CSS et JavaScript.</p>
+</div>
+
+<!-- Mobile -->
+<button type="button" class="collapsible">Mobile</button>
+<div class="content">
+    <h3>Commencer</h3>
+    <p>Ces instructions vous aideront à configurer et à exécuter le projet sur votre machine locale pour le développement et les tests.</p>
+    <p>Sources :</p>
+    <ul>
+        <li><a href="https://m3.material.io/">Material Design 3</a></li>
+        <li><a href="https://developer.android.com/studio/run/emulator-networking">Emulator Networking</a></li>
+        <li><a href="https://developer.android.com/develop/ui/compose/tooling/iterative-development">Iterative Development with Compose</a></li>
+    </ul>
+    <h3>Prérequis</h3>
+    <ul>
+        <li>Android Studio</li>
+        <li>Java 8</li>
+        <li>Android SDK</li>
+        <li>OkHttp</li>
+    </ul>
+    <h3>Installation</h3>
+    <ol>
+        <li>Ouvrez le projet dans Android Studio.</li>
+        <li>Construisez le projet pour télécharger les dépendances.</li>
+        <li>Configurez les URL de l'API dans <code>build.gradle</code> :</li>
+    </ol>
+    <pre><code>buildConfigField("String", "API_BASE_URL", "\"https://10.0.2.2:8001/\"")
+buildConfigField("String", "LOGIN_API_URL", "\"https://10.0.2.2:8001/api/login\"")
+buildConfigField("String", "SIGNUP_API_URL", "\"https://10.0.2.2:8001/api/signup\"")
+buildConfigField("String", "USER_DETAILS_API_URL", "\"https://10.0.2.2:8001/api/user-details\"")</code></pre>
+    <h3>Fichiers de mise en page</h3>
+    <p>Définir les éléments UI pour les activités.</p>
+    <ul>
+        <li><code>activity_login.xml</code></li>
+        <li><code>activity_signup.xml</code></li>
+        <li><code>activity_user_details.xml</code></li>
+        <li><code>activity_main.xml</code></li>
+    </ul>
+    <h3>À propos de 10.0.2.2</h3>
+    <p>L'adresse IP 10.0.2.2 est une adresse IP spéciale utilisée pour accéder à la machine hôte depuis un émulateur Android. Lorsque vous développez et testez des applications Android avec un émulateur, 10.0.2.2 vous permet de rediriger les requêtes réseau vers votre machine locale, facilitant ainsi les tests d'API locales sans avoir besoin d'un serveur distant.</p>
+    <h3>Fichiers de configuration</h3>
+    <h4>AndroidManifest.xml</h4>
+    <h5>Permission</h5>
+    <pre><code><uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS" /></code></pre>
+    <h5>Activity</h5>
+    <pre><code><activity
+    android:name=".MainActivity"
+    android:exported="true">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+<activity android:name=".LoginActivity" android:exported="true">
+</activity>
+<activity android:name=".SignupActivity" android:exported="true">
+</activity>
+<activity android:name=".UserDetailsActivity" android:exported="true">
+</activity></code></pre>
+    <h3>Astuces pour le développement Android</h3>
+    <ul>
+        <li>Utilisez <a href="https://m3.material.io/">Material Design 3</a> pour des interfaces utilisateur modernes et réactives.</li>
+        <li>Configurez votre émulateur Android pour accéder au réseau de la machine hôte en utilisant <a href="https://developer.android.com/studio/run/emulator-networking">10.0.2.2</a>.</li>
+        <li>Profitez du développement itératif avec <a href="https://developer.android.com/develop/ui/compose/tooling/iterative-development">Jetpack Compose</a> pour créer des UI dynamiques et réactives.</li>
+    </ul>
+    <h3>Emulator Issue</h3>
+    <p>Pour les laptop un peu plus vieux, utilisez ce tutoriel :</p>
+</div>
+
+<!-- Deployment -->
+<button type="button" class="collapsible">Deployment</button>
 <div class="content">
     <h3>Diagramme de déploiement</h3>
     <p><img src="https://www.plantuml.com/plantuml/dpng/XP5FImCn44Vlyob-vk9fmMjxa2vhiOTQjksg1_6GPaSCngJcZwAotzsD4A5GwTp2UxnCo2n4wMDwDNJMyvEsZCsywUhLzN8EPMG8H595vt4Rs1Cfur8FKNybpsZoGU2RC8vrFKFSwJ4c3LOSFvn_AV2Ft_CEM_Rlx0igyz0kMcHSx_T6Ancriu_560uhLpBAdGpyN-hcSxjUebXJHFLyCPbKuTS-Z0uq49sZSTQoodS6oYz5LLqUNmbJY4NNjTZmM-8GWw3ZNYwSs2It2iCwiTSyvcPi-_53VW00" alt="Diagramme de déploiement"></p>

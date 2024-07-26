@@ -3,7 +3,7 @@
 ## Introduction
 Les DevTools sont un ensemble d'outils intégrés dans les navigateurs web pour aider les développeurs à inspecter, déboguer et analyser les pages web.
 
-Source 1 : https://www.markup.io/blog/chrome-developer-tools/#:~:text=Well%2C%20with%20'Design%20Mode%2C,on%2C%E2%80%9D%20and%20hit%20enter.
+Source 1 : [Chrome Developer Tools](https://www.markup.io/blog/chrome-developer-tools/#:~:text=Well%2C%20with%20'Design%20Mode%2C,on%2C%E2%80%9D%20and%20hit%20enter.)
 
 ## Sommaire
 - [Elements](#elements)
@@ -15,6 +15,7 @@ Source 1 : https://www.markup.io/blog/chrome-developer-tools/#:~:text=Well%2C%20
 - [Application](#application)
 - [Security](#security)
 - [Shortcuts](#shortcuts)
+- [Ajouter TailwindCSS ou Bootstrap](#ajouter-tailwindcss-ou-bootstrap)
 
 ## Elements
 ![Badge](https://img.shields.io/badge/Onglet-Elements-blue)
@@ -41,7 +42,6 @@ L'onglet **Console** est utilisé pour afficher les messages de journalisation, 
 ![image](https://github.com/user-attachments/assets/6977d102-1a6d-42ef-b833-ee28e15a7563)
 
 ## Sources
-
 ![Badge](https://img.shields.io/badge/Onglet-Sources-blue)
 L'onglet **Sources** permet de visualiser et de déboguer le code JavaScript.
 
@@ -120,7 +120,58 @@ Voici quelques raccourcis clavier utiles pour les DevTools en français :
 | Ouvrir l'onglet Console | `Ctrl + Shift + J` |
 | Ouvrir l'onglet Network | `Ctrl + Shift + E` |
 
+## Ajouter TailwindCSS ou Bootstrap
 
-## Conclusion
-Les DevTools sont des outils puissants pour tout développeur web. Apprendre à les utiliser efficacement peut considérablement améliorer votre flux de travail et la qualité de vos projets.
+### Utiliser TailwindCSS via CDN
 
+TailwindCSS est un framework CSS utilitaire qui permet de créer des interfaces modernes rapidement.
+
+#### Étape 1: Ajouter le lien CDN
+
+Ajoutez le lien CDN de TailwindCSS dans la balise `<head>` de votre fichier HTML :
+
+```html
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+```
+
+#### Étape 2: Utiliser les classes Tailwind
+
+Utilisez les classes TailwindCSS directement dans vos éléments HTML :
+
+```html
+<div class="bg-blue-500 text-white p-4">
+    Bonjour, TailwindCSS !
+</div>
+```
+
+### Utiliser Bootstrap via CDN
+
+Bootstrap est un framework CSS populaire pour développer des sites web réactifs et mobiles.
+
+#### Étape 1: Ajouter le lien CDN
+
+Ajoutez le lien CDN de Bootstrap dans la balise `<head>` de votre fichier HTML :
+
+```html
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+```
+
+#### Étape 2: Utiliser les classes Bootstrap
+
+Utilisez les classes Bootstrap directement dans vos éléments HTML :
+
+```html
+<div class="container">
+    <div class="alert alert-primary" role="alert">
+        Bonjour, Bootstrap !
+    </div>
+</div>
+```
+
+### Conclusion
+
+Utiliser des frameworks CSS comme TailwindCSS ou Bootstrap via CDN est une méthode rapide et facile pour améliorer l'apparence de votre site web sans configuration complexe. Profitez des puissantes fonctionnalités de ces outils pour créer des interfaces utilisateur attrayantes et réactives.

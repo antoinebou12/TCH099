@@ -25,25 +25,24 @@ try {
 }
 
 // Determine the environment (local or cloud)
-$isCloudEnv = filter_var($_ENV['CLOUD_ENV'] ?? getenv('CLOUD_ENV'), FILTER_VALIDATE_BOOLEAN);
+$isCloudEnv = getenv('CLOUD_ENV') == 'true';
 
 // Local environment settings
-$host = $_ENV['DB_HOST'] ?? null;
-$db   = $_ENV['MYSQL_DATABASE'] ?? null;
-$user = $_ENV['MYSQL_USER'] ?? null;
-$pass = $_ENV['MYSQL_PASSWORD'] ?? null;
-$port = $_ENV['DB_PORT'] ?? '3306';
+$host = getenv('DB_HOST');
+$db   = getenv('MYSQL_DATABASE');
+$user = getenv('MYSQL_USER');
+$pass = getenv('MYSQL_PASSWORD');
+$port = getenv('DB_PORT') ?: '3306';
 
 if ($isCloudEnv) {
     // Cloud environment settings
-    $host = $_ENV['AZURE_MYSQL_HOST'] ?? $host;
-    $db   = $_ENV['AZURE_MYSQL_DBNAME'] ?? $db;
-    $user = $_ENV['AZURE_MYSQL_USERNAME'] ?? $user;
-    $pass = $_ENV['AZURE_MYSQL_PASSWORD'] ?? $pass;
-    $port = $_ENV['AZURE_MYSQL_PORT'] ?? '3306';
+    $host = getenv('AZURE_MYSQL_HOST') ?: $host;
+    $db   = getenv('AZURE_MYSQL_DBNAME') ?: $db;
+    $user = getenv('AZURE_MYSQL_USERNAME') ?: $user;
+    $pass = getenv('AZURE_MYSQL_PASSWORD') ?: $pass;
+    $port = getenv('AZURE_MYSQL_PORT') ?: '3306';
 }
 $charset = 'utf8mb4';
-
 
 if (!$host) {
     throw new InvalidPathException('DB_HOST is not set. Current environment: ' . ($isCloudEnv ? 'Cloud' : 'Local'));

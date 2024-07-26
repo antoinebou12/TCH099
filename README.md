@@ -373,5 +373,5 @@ Naviguer sur la page de la base de données MySQL dans votre groupe de ressource
 
 ![image](https://github.com/user-attachments/assets/0a1d1e07-ea3d-4837-9caa-f04fc680f222)
 ![image](https://github.com/user-attachments/assets/d765bdac-7c4a-4cb9-911e-7ba9a907b72c)
-
+Naviguer sur la page de la base de données MySQL dans votre groupe de ressources pour accéder à votre base de données.
 

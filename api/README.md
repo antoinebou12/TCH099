@@ -1,7 +1,7 @@
 # Conseils et Astuces PHP
 
 ## Introduction
-Ce guide fournit des conseils pratiques pour travailler avec PHP, y compris la connexion à une base de données, l'exécution de requêtes SQL de base, la gestion des requêtes GET et POST, la gestion des sessions, et l'importation de fichiers. Assurer de separer ta logic de frontend et de backend.
+Ce guide fournit des conseils pratiques pour travailler avec PHP, y compris la connexion à une base de données, l'exécution de requêtes SQL de base, la gestion des requêtes GET et POST, la gestion des sessions, et l'importation de fichiers. Assurez-vous de séparer la logique frontend et backend.
 
 ## Table des Matières
 - [Connexion à une Base de Données](#connexion-à-une-base-de-données)
@@ -20,10 +20,10 @@ Pour se connecter à une base de données en PHP, il est recommandé d'utiliser 
 #### Exemple de Connexion
 ```php
 <?php
-$host = '127.0.0.1';
-$db = 'nom_de_la_base';
-$user = 'nom_utilisateur';
-$pass = 'mot_de_passe';
+$host = getenv('DB_HOST') ?: '127.0.0.1';
+$db = getenv('DB_NAME') ?: 'nom_de_la_base';
+$user = getenv('DB_USER') ?: 'nom_utilisateur';
+$pass = getenv('DB_PASS') ?: 'mot_de_passe';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -39,7 +39,7 @@ try {
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
 ```
-Ce code établit une connexion sécurisée à une base de données MySQL.
+Ce code établit une connexion sécurisée à une base de données MySQL en utilisant des variables d'environnement pour les informations de connexion.
 
 ## Exécution de Requêtes SQL de Base
 ### Requêtes de Sélection
@@ -162,14 +162,14 @@ if (strcmp($str1, $str2) < 0) {
 Les variables d'environnement sont utiles pour stocker des informations sensibles comme les identifiants de base de données.
 
 ### Exemple
-Pour utiliser les variables d'environnement, vous pouvez utiliser la fonction `$_ENV`.
+Pour utiliser les variables d'environnement, vous pouvez utiliser la fonction `getenv`.
 
 #### Exemple d'Utilisation
 ```php
-$host = $_ENV['DB_HOST'];
-$db = $_ENV['DB_NAME'];
-$user = $_ENV['DB_USER'];
-$pass = $_ENV['DB_PASS'];
+$host = getenv('DB_HOST') ?: '127.0.0.1';
+$db = getenv('DB_NAME') ?: 'nom_de_la_base';
+$user = getenv('DB_USER') ?: 'nom_utilisateur';
+$pass = getenv('DB_PASS') ?: 'mot_de_passe';
 ```
 Cela permet de séparer les configurations sensibles du code source.
 
@@ -215,10 +215,10 @@ Supposons que vous ayez un fichier de configuration `config.php` que vous souhai
 ```php
 <?php
 // config.php
-$host = '127.0.0.1';
-$db = 'nom_de_la_base';
-$user = 'nom_utilisateur';
-$pass = 'mot_de_passe';
+$host = getenv('DB_HOST') ?: '127.0.0.1';
+$db = getenv('DB_NAME') ?: 'nom_de_la_base';
+$user = getenv('DB_USER') ?: 'nom_utilisateur';
+$pass = getenv('DB_PASS') ?: 'mot_de_passe';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -226,6 +226,7 @@ $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_EMULATE_PREPARES   => false,
+    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
 ];
 ```
 
@@ -239,7 +240,9 @@ try {
     $pdo = new PDO($dsn, $user, $pass, $options);
     echo "Connexion réussie à la base de données.";
 } catch (\PDOException $e) {
-    throw new \PDOException($e->getMessage(), (int)$e->getCode());
+    throw new \PDOException($e->getMessage(), (int
+
+)$e->getCode());
 }
 ```
 
@@ -247,8 +250,6 @@ Dans cet exemple, `config.php` contient les informations de connexion à la base
 
 ## Conseils Utiles
 - **Validation des Données** : Toujours valider et échapper les données utilisateur pour éviter les attaques par injection SQL.
-- **Utilisation de PDO** : Utilisez
-
- PDO pour les interactions avec la base de données afin de bénéficier des requêtes préparées et d'une meilleure sécurité.
+- **Utilisation de PDO** : Utilisez PDO pour les interactions avec la base de données afin de bénéficier des requêtes préparées et d'une meilleure sécurité.
 - **Gestion des Erreurs** : Utilisez `try-catch` pour gérer les exceptions et enregistrer les erreurs pour un débogage plus facile.
 - **Filtres de Données** : Utilisez les fonctions de filtrage de PHP (`filter_var()`, `filter_input()`) pour valider et assainir les entrées utilisateur.

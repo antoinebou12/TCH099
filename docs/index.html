@@ -63,7 +63,7 @@
 <body>
 
 <h1>Application Web Démo TCH099</h1>
-<p>Ce dépôt sera utilisé comme application web PHP démo à déployer sur le cloud Azure</p>
+<p>Ce dépôt sera utilisé comme application web PHP démo à déployer sur le cloud Azure.</p>
 
 <!-- PlanProject -->
 <button type="button" class="collapsible">PlanProject</button>
@@ -174,7 +174,7 @@ MYSQL_PASSWORD=password
     <button type="button" class="collapsible">Initialiser la base de données</button>
     <div class="content">
         <p>Exécutez les commandes suivantes pour initialiser la base de données :</p>
-        <pre><code>cd db.py # assurez-vous d'avoir un fichier .env dans le dossier avec les bonnes variables pour la base de données
+        <pre><code>cd db
 python3 -m pip install mysql-connector-python python-dotenv
 python3 db.py
 </code></pre>
@@ -184,8 +184,6 @@ python3 db.py
     <div class="content">
         <pre><code>/
 ├── api/                        # Dossier contenant les scripts de points de terminaison API
-└── utils/                      # Dossier contenant les scripts utilitaires
-    └── utils.php               # Fonctions utilitaires pour l'application
 │   ├── hello-world.php         # Point de terminaison API pour les messages Hello World
 │   ├── login.php               # Point de terminaison API pour la connexion utilisateur
 │   ├── logout.php              # Point de terminaison API pour la déconnexion utilisateur
@@ -193,13 +191,11 @@ python3 db.py
 │   ├── signup.php              # Point de terminaison API pour l'inscription utilisateur
 │   ├── user_details.php        # Point de terminaison API pour récupérer les détails de l'utilisateur
 │   └── clients.php             # Point de terminaison API pour récupérer tous les clients
-
 ├── db/                         # Dossier contenant les scripts SQL pour la configuration de la base de données
 │   ├── 1create.sql             # Script SQL pour créer les tables de la base de données
 │   ├── 2contraines.sql         # Script SQL pour ajouter des contraintes
 │   ├── 3insert.sql             # Script SQL pour insérer les données initiales dans les tables de la base de données
 │   └── db.py                   # Script Python pour créer, modifier et insérer les données initiales dans les tables de la base de données
-
 ├── frontend/                   # Dossier contenant les actifs et les pages frontend
 │   ├── css/                    # Dossier contenant les fichiers CSS
 │   │   └── styles.css          # Feuille de style principale pour le frontend
@@ -214,7 +210,6 @@ python3 db.py
 │       ├── random-image.html   # Page HTML pour afficher une image aléatoire
 │       ├── signup.html         # Page HTML pour le formulaire d'inscription
 │       └── 404.html            # Page HTML pour les erreurs 404 Not Found
-
 ├── config.php                  # Fichier de configuration principal pour le projet
 ├── router.php                  # Fichier de routage principal pour la gestion du routage URL
 ├── routes.php                  # Fichier définissant les routes pour l'application

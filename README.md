@@ -116,7 +116,7 @@ docker-compose up -d --build
 ## Initialisation de la base de données
 
 ```
-cd db.py
+cd db
 python3 -m pip3 install mysql-connector-python python-dotenv
 python3 db.py
 ```

@@ -63,6 +63,42 @@ public class HttpClient {
         getInstance().newCall(request).enqueue(callback);
     }
 
+    public static void execute(Request request, Context context, @Nullable Callback callback) {
+        getInstance().newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                if (callback != null) callback.onFailure(call, e);
+                runOnUiThread(context, () -> {
+                    showToast(context, "Request failed: " + e.getMessage());
+                    Log.e(TAG, "Request failed", e);
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (callback != null) callback.onResponse(call, response);
+                runOnUiThread(context, () -> {
+                    if (response.isSuccessful()) {
+                        showToast(context, "Request successful");
+                    } else {
+                        String errorMessage = "Request failed: " + response.message();
+                        showToast(context, errorMessage);
+                        Log.e(TAG, errorMessage);
+                    }
+                });
+            }
+        });
+    }
+
+    private static void runOnUiThread(Context context, Runnable action) {
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(action);
+    }
+
+    private static void showToast(Context context, String message) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+    }
+
     public static Request Post(String url, RequestBody formBody) {
         return new Request.Builder()
                 .url(url)

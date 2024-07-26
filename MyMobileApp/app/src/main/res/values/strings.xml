@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TCH099</string>
+    <string name="username">Username:</string>
+    <string name="email">Email:</string>
+    <string name="role">Role:</string>
+    <string name="emailhint">Email</string>
+    <string name="passwordhint">Password</string>
+    <string name="sign_up_hint">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="signup">Signup</string>
+</resources>

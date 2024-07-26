@@ -1,5 +1,10 @@
 <?php
-require_once 'vendor/autoload.php';
+// Check for vendor autoload
+if (!file_exists(__DIR__.'/vendor/autoload.php')) {
+    throw new Exception('vendor/autoload.php not found. Did you run composer install?');
+}
+
+require_once __DIR__.'/vendor/autoload.php';
 
 use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidPathException;

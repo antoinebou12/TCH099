@@ -174,9 +174,7 @@ python3 db.py
 
 ## Cas d'utilisation
 
-![Cas d'utilisation](https://www.plantuml.com/plantuml/dpng/PP51QiGm34NtFeMOVQz
-
-GPfZ242WKMjnj4Oam1bi9jaolNyUDgnJlelSYyhzopO99IWm6PraJs4pfUBmjqRCn9TECcU3ouHs3tIw06UpzQn_jflfrTJ1njtMQ-BzyAtAoTLBzwUcxVHfUID27t5_SnSuFh1iFOaee18z499vTt-YYy_EAm3loiaQO8ZhI3Vd5ZPuB4y4j1BW7Jon_cIgkz836jDXFptgIJlGC7MXp9KD5LKCNTMFgzhUg6nDUYPSImmy0)
+![Cas d'utilisation](https://www.plantuml.com/plantuml/dpng/PP51QiGm34NtFeMOVQzGPfZ242WKMjnj4Oam1bi9jaolNyUDgnJlelSYyhzopO99IWm6PraJs4pfUBmjqRCn9TECcU3ouHs3tIw06UpzQn_jflfrTJ1njtMQ-BzyAtAoTLBzwUcxVHfUID27t5_SnSuFh1iFOaee18z499vTt-YYy_EAm3loiaQO8ZhI3Vd5ZPuB4y4j1BW7Jon_cIgkz836jDXFptgIJlGC7MXp9KD5LKCNTMFgzhUg6nDUYPSImmy0)
 
 ## Diagramme de classe
 
@@ -368,3 +366,12 @@ MYSQL_PASSWORD=password
 ```
 
 ![ENV](https://github.com/user-attachments/assets/e92362e5-2ad2-41a6-8b3b-c4586033251c)
+
+### 8. Assure toi d'avoir un private link
+
+Naviguer sur la page de la base de données MySQL dans votre groupe de ressources pour accéder à votre base de données.
+
+![image](https://github.com/user-attachments/assets/0a1d1e07-ea3d-4837-9caa-f04fc680f222)
+![image](https://github.com/user-attachments/assets/d765bdac-7c4a-4cb9-911e-7ba9a907b72c)
+Naviguer sur la page de la base de données MySQL dans votre groupe de ressources pour accéder à votre base de données.
+

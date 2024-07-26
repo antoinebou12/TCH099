@@ -59,8 +59,6 @@ Ajouter des image et icon
 ![image](https://github.com/user-attachments/assets/383c353c-5ff0-4130-9371-a12f0576d306)
 
 
-![image](https://github.com/user-attachments/assets/95ac6cb6-3490-4eda-b6e3-0514cca95506)
-
 ### AndroidManifest.xml
 
 #### Permission

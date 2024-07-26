@@ -8,7 +8,9 @@ MyMobileApp est une application Android qui fournit des fonctionnalités de conn
 Ces instructions vous aideront à configurer et à exécuter le projet sur votre machine locale pour le développement et les tests.
 
 Source 1: https://m3.material.io/
+
 Source 2: https://developer.android.com/studio/run/emulator-networking
+
 Source 3: https://developer.android.com/develop/ui/compose/tooling/iterative-development
 
 ### Prérequis

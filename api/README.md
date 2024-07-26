@@ -1,16 +1,17 @@
 # Conseils et Astuces PHP
 
 ## Introduction
-Ce guide fournit des conseils pratiques pour travailler avec PHP, y compris la connexion à une base de données, l'exécution de requêtes SQL de base, la gestion des requêtes GET et POST, et la gestion des sessions.
+Ce guide fournit des conseils pratiques pour travailler avec PHP, y compris la connexion à une base de données, l'exécution de requêtes SQL de base, la gestion des requêtes GET et POST, la gestion des sessions, et l'importation de fichiers. Assurer de separer ta logic de frontend et de backend.
 
 ## Table des Matières
 - [Connexion à une Base de Données](#connexion-à-une-base-de-données)
 - [Exécution de Requêtes SQL de Base](#exécution-de-requêtes-sql-de-base)
 - [Gestion des Requêtes GET et POST](#gestion-des-requêtes-get-et-post)
 - [Gestion des Sessions](#gestion-des-sessions)
-- [Conseils Utiles](#conseils-utiles)
 - [Comparaison de Chaînes avec strcmp](#comparaison-de-chaînes-avec-strcmp)
 - [Utilisation de Variables d'Environnement](#utilisation-de-variables-denvironnement)
+- [Importation de Fichiers](#importation-de-fichiers)
+- [Conseils Utiles](#conseils-utiles)
 
 ## Connexion à une Base de Données
 ### Connexion avec PDO
@@ -172,8 +173,82 @@ $pass = $_ENV['DB_PASS'];
 ```
 Cela permet de séparer les configurations sensibles du code source.
 
+## Importation de Fichiers
+L'importation de fichiers en PHP est une tâche courante, particulièrement lorsqu'il s'agit de structurer un projet en plusieurs fichiers pour une meilleure organisation et réutilisabilité du code. PHP fournit plusieurs façons d'inclure des fichiers, comme `include`, `require`, `include_once`, et `require_once`.
+
+### Inclure un Fichier
+La fonction `include` permet d'inclure un fichier. Si le fichier n'est pas trouvé, un avertissement est généré, mais le script continue son exécution.
+
+#### Exemple d'Utilisation de `include`
+```php
+include 'chemin/vers/fichier.php';
+```
+
+### Inclure un Fichier Obligatoirement
+La fonction `require` fonctionne de manière similaire à `include`, mais si le fichier n'est pas trouvé, une erreur fatale est générée et le script s'arrête.
+
+#### Exemple d'Utilisation de `require`
+```php
+require 'chemin/vers/fichier.php';
+```
+
+### Inclure un Fichier une Seule Fois
+Les fonctions `include_once` et `require_once` garantissent qu'un fichier est inclus une seule fois, même si plusieurs inclusions sont appelées.
+
+#### Exemple d'Utilisation de `include_once`
+```php
+include_once 'chemin/vers/fichier.php';
+```
+
+#### Exemple d'Utilisation de `require_once`
+```php
+require_once 'chemin/vers/fichier.php';
+```
+
+Ces méthodes sont utiles pour éviter les redéfinitions de fonctions, classes ou variables.
+
+## Exemple Complet
+
+Supposons que vous ayez un fichier de configuration `config.php` que vous souhaitez inclure dans votre script principal.
+
+### Fichier config.php
+```php
+<?php
+// config.php
+$host = '127.0.0.1';
+$db = 'nom_de_la_base';
+$user = 'nom_utilisateur';
+$pass = 'mot_de_passe';
+$charset = 'utf8mb4';
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+```
+
+### Fichier principal.php
+```php
+<?php
+// Inclure le fichier de configuration
+require_once 'config.php';
+
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+    echo "Connexion réussie à la base de données.";
+} catch (\PDOException $e) {
+    throw new \PDOException($e->getMessage(), (int)$e->getCode());
+}
+```
+
+Dans cet exemple, `config.php` contient les informations de connexion à la base de données et est inclus dans `principal.php` en utilisant `require_once` pour garantir qu'il n'est inclus qu'une seule fois, même si d'autres inclusions l'appellent également.
+
 ## Conseils Utiles
 - **Validation des Données** : Toujours valider et échapper les données utilisateur pour éviter les attaques par injection SQL.
-- **Utilisation de PDO** : Utilisez PDO pour les interactions avec la base de données afin de bénéficier des requêtes préparées et d'une meilleure sécurité.
+- **Utilisation de PDO** : Utilisez
+
+ PDO pour les interactions avec la base de données afin de bénéficier des requêtes préparées et d'une meilleure sécurité.
 - **Gestion des Erreurs** : Utilisez `try-catch` pour gérer les exceptions et enregistrer les erreurs pour un débogage plus facile.
 - **Filtres de Données** : Utilisez les fonctions de filtrage de PHP (`filter_var()`, `filter_input()`) pour valider et assainir les entrées utilisateur.

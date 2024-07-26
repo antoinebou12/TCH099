@@ -366,3 +366,12 @@ MYSQL_PASSWORD=password
 ```
 
 ![ENV](https://github.com/user-attachments/assets/e92362e5-2ad2-41a6-8b3b-c4586033251c)
+
+### 8. Assure toi d'avoir un private link
+
+Naviguer sur la page de la base de données MySQL dans votre groupe de ressources pour accéder à votre base de données.
+
+![image](https://github.com/user-attachments/assets/0a1d1e07-ea3d-4837-9caa-f04fc680f222)
+![image](https://github.com/user-attachments/assets/d765bdac-7c4a-4cb9-911e-7ba9a907b72c)
+
+

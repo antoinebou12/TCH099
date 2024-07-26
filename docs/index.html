@@ -157,29 +157,6 @@
     </div>
 </div>
 
-<!-- DB -->
-<button type="button" class="collapsible">DB</button>
-<div class="content">
-    <button type="button" class="collapsible">Variables d'environnement</button>
-    <div class="content">
-        <p>Créez un fichier <code>.env</code> à la racine de votre projet avec le contenu suivant :</p>
-        <pre><code>DB_HOST=tch099-db
-MYSQL_ROOT_PASSWORD=rootpassword
-MYSQL_DATABASE=mydatabase
-MYSQL_USER=user
-MYSQL_PASSWORD=password
-</code></pre>
-    </div>
-
-    <button type="button" class="collapsible">Initialiser la base de données</button>
-    <div class="content">
-        <p>Exécutez les commandes suivantes pour initialiser la base de données :</p>
-        <pre><code>cd db
-python3 -m pip install mysql-connector-python python-dotenv
-python3 db.py
-</code></pre>
-    </div>
-
     <button type="button" class="collapsible">Structure du projet</button>
     <div class="content">
         <pre><code>/
@@ -219,6 +196,30 @@ python3 db.py
 </code></pre>
     </div>
 </div>
+
+<!-- DB -->
+<button type="button" class="collapsible">DB</button>
+<div class="content">
+    <button type="button" class="collapsible">Variables d'environnement</button>
+    <div class="content">
+        <p>Créez un fichier <code>.env</code> à la racine de votre projet avec le contenu suivant :</p>
+        <pre><code>DB_HOST=tch099-db
+MYSQL_ROOT_PASSWORD=rootpassword
+MYSQL_DATABASE=mydatabase
+MYSQL_USER=user
+MYSQL_PASSWORD=password
+</code></pre>
+    </div>
+
+    <button type="button" class="collapsible">Initialiser la base de données</button>
+    <div class="content">
+        <p>Exécutez les commandes suivantes pour initialiser la base de données :</p>
+        <pre><code>
+cd db
+python3 -m pip install mysql-connector-python python-dotenv
+python3 db.py
+</code></pre>
+    </div>
 
 <!-- API -->
 <button type="button" class="collapsible">API</button>

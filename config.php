@@ -44,6 +44,7 @@ if ($isCloudEnv) {
 }
 $charset = 'utf8mb4';
 
+// Validate essential environment variables
 if (!$host) {
     throw new InvalidPathException('DB_HOST is not set. Current environment: ' . ($isCloudEnv ? 'Cloud' : 'Local'));
 }
@@ -71,3 +72,5 @@ try {
 } catch (\PDOException $e) {
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
+
+// .env file has been loaded and database connection is established

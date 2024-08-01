@@ -114,6 +114,9 @@ Pour exécuter l'application localement en utilisant Docker:
 
 Nom d'utilisateur: admin
 Mot de passe: rootpassword
+
+Nom d'utilisateur: user
+Mot de passe: password
 ```
 
 ```

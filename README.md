@@ -391,5 +391,13 @@ Ouvrir le firewall pour votre base de données
 
 ![image](https://github.com/user-attachments/assets/36eb7526-6de5-4858-abeb-fa7f5db24c5f)
 
+Utiliser DB beaver pour accéder à votre base de données
+
+![image](https://github.com/user-attachments/assets/11e12afc-4dc6-47ac-b025-fd353c2c4352)
+
+Utiliser SSL pour ce connecter sur la base de données
+
+![image](https://github.com/user-attachments/assets/925525ad-1889-4e29-935c-21d5bb30eb56)
+
 
 

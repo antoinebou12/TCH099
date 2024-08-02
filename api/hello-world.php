@@ -4,7 +4,7 @@ require_once(__DIR__ . "/utils/utils.php");
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $body = json_decode(file_get_contents("php://input"));
+    $body = json_decode(file_get_contents("php://input")); // Get the body of the request
     $nom = $body->nom ?? 'Doe';
     $prenom = $body->prenom ?? 'John';
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {

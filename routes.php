@@ -2,6 +2,7 @@
 require_once __DIR__.'/router.php';
 
 // Home Routes
+get('/', 'frontend/pages/index.html');
 get('/home', 'frontend/pages/index.html');
 post('/home', 'frontend/pages/index.html');
 
@@ -28,10 +29,12 @@ post('/api/login', 'api/login.php'); // POST
 post('/api/signup', 'api/signup.php'); // POST
 post('/api/logout', 'api/logout.php'); // POST
 get('/api/user_details', 'api/user_details.php'); // GET
+
 get('/api/clients', 'api/clients.php'); // GET
 
 post('/api/hello-world/$langue', 'api/hello-world.php'); // POST
 get('/api/hello-world/$langue', 'api/hello-world.php'); // GET
+
 get('/api/random-image', 'api/random-image.php'); // GET
 post('/api/random-image', 'api/random-image.php'); // POST
 
@@ -40,7 +43,4 @@ post('/api/random-image', 'api/random-image.php'); // POST
 any('/404', 'frontend/pages/404.html');
 // 403 Route
 any('/403', 'frontend/pages/403.html');
-
-
-// get('/images/logo.png', 'frontend/images/logo.png');
 ?>

@@ -269,7 +269,13 @@ Une URL d'image aléatoire.
 
 ![image](https://github.com/user-attachments/assets/7e67e536-4f69-4f9d-9fa0-3424cffdc6d9)
 
+Après d'avoir créer ta machine virtuel connect par ssh change le user et le ip
 ```
+ssh azureuser@10.20.10.12
+```
+Enter password
+
+```bash
 git clone https://github.com/antoinebou12/TCH099
 
 sudo apt-get update
@@ -302,7 +308,7 @@ sudo docker-compose up -d
 
 - Source 1: [https://learn.microsoft.com/fr-fr/azure/app-service/quickstart-php?tabs=cli&pivots=platform-linux](https://learn.microsoft.com/fr-fr/azure/app-service/quickstart-php?tabs=cli&pivots=platform-linux)
 - Source 2: [https://learn.microsoft.com/fr-fr/azure/app-service/configure-language-php?pivots=platform-linux](https://learn.microsoft.com/fr-fr/azure/app-service/configure-language-php?pivots=platform-linux)
-Source 3: [https://learn.microsoft.com/en-us/azure/app-service/tutorial-php-mysql-app#2---set-up-database-connectivity](https://learn.microsoft.com/en-us/azure/app-service/tutorial-php-mysql-app#2---set-up-database-connectivity)
+- Source 3: [https://learn.microsoft.com/en-us/azure/app-service/tutorial-php-mysql-app#2---set-up-database-connectivity](https://learn.microsoft.com/en-us/azure/app-service/tutorial-php-mysql-app#2---set-up-database-connectivity)
 
 ### 1. Créer un service d'application web et une base de données
 

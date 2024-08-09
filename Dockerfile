@@ -23,6 +23,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www/html/
 
+#enable mod rewrite
+RUN a2enmod rewrite
+
 # Copy application source
 COPY . .
 

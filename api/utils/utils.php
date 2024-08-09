@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../../config.php';
 
 function loginUser($username, $password) {
-    global $pdo;
+    $pdo = $GLOBALS['pdo'];
     $stmt = $pdo->prepare('SELECT * FROM Clients WHERE username = ?');
     $stmt->execute([$username]);
     $user = $stmt->fetch();
@@ -23,9 +23,8 @@ function loginUser($username, $password) {
 }
 
 function registerUser($username, $password, $email, $role) {
-    global $pdo;
+    $pdo = $GLOBALS['pdo'];
 
-    // Validate role
     $validRoles = ['admin', 'client'];
     if (!in_array($role, $validRoles)) {
         throw new Exception('Invalid role provided');
@@ -36,7 +35,7 @@ function registerUser($username, $password, $email, $role) {
     return $stmt->execute([$username, $passwordHash, $email, $role]);
 }
 
-
+// The rest of your functions should follow the same pattern:
 function isUserLoggedIn() {
     if (session_status() == PHP_SESSION_NONE) {
         session_start();

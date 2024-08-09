@@ -13,7 +13,7 @@ RUN apt-get update && \
     python3 \
     python3-pip \
     python3-venv && \
-    docker-php-ext-install zip pdo pdo_mysql && \
+    docker-php-ext-install zip && \
     a2enmod rewrite headers && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -26,16 +26,5 @@ WORKDIR /var/www/html/
 # Copy application source
 COPY . .
 
-# Install PHP dependencies
-RUN composer install --no-interaction --no-progress --prefer-dist
-
-# Set up Python virtual environment and install dependencies
-RUN python3 -m venv /opt/venv && \
-    /opt/venv/bin/pip install --upgrade pip && \
-    /opt/venv/bin/pip install mysql-connector-python python-dotenv
-
 # Expose port 80
 EXPOSE 80
-
-# Activate virtual environment for all following commands
-ENV PATH="/opt/venv/bin:$PATH"

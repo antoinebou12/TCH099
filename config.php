@@ -28,9 +28,9 @@ $options = [
 ];
 
 try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
+    // Declare the PDO object as a global variable
+    $GLOBALS['pdo'] = new PDO($dsn, $user, $pass, $options);
+    echo "Database connection successful.";
 } catch (\PDOException $e) {
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
-
-// .env file has been loaded and database connection is established

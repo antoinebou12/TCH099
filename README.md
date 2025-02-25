@@ -68,8 +68,6 @@ to phpmyadmin
 ## Structure du projet
 
 ```
-/
-
 ├── api/                        # Dossier contenant les scripts de points de terminaison API
 └── utils/                      # Dossier contenant les scripts utilitaires
     └── utils.php               # Fonctions utilitaires pour l'application

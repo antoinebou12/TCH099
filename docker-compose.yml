@@ -1,6 +1,6 @@
 services:
   web:
-    container_name: tch099-web
+    container_name: tch099-webs
     build:
       context: .
       dockerfile: Dockerfile
